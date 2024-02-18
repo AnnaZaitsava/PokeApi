@@ -11,9 +11,79 @@ typealias Completion = ((Result<PokemonListResponse, Error>) -> Void)
 
 struct Network {
     private let url = URL(string: "https://pokeapi.co/api/v2/pokemon")
-
-    func fetchData(completion:  @escaping Completion) {
+    
+    func fetchPokemonList(completion:  @escaping Completion) {
         let urlRequest = URLRequest(url: url ?? URL(fileURLWithPath: ""))
+        let task = URLSession.shared.dataTask(
+            with: urlRequest,
+            completionHandler: { (data, response, error) in
+                if let error = error {
+                    completion(.failure(error))
+                    return
+                }
+                
+                guard let response = response as? HTTPURLResponse else {
+                    completion(.failure(URLError(.badServerResponse)))
+                    return
+                }
+                
+                guard response.statusCode == 200 else {
+                    completion(.failure(URLError(.badServerResponse)))
+                    return
+                }
+                
+                guard let data = data else {
+                    completion(.failure(URLError(.cannotDecodeContentData)))
+                    return
+                }
+                
+                do {
+                    let pokemons = try? JSONDecoder().decode(PokemonListResponse.self, from: data)
+                    guard let result = pokemons else {
+                        return
+                    }
+                    completion(.success(result))
+                }
+            }
+        )
+        task.resume()
+    }
+    
+    func fetchPokemonDetails(from url: String, completion: @escaping (Result<PokemonDetailed, Error>) -> Void) {
+        guard let url = URL(string: url) else {
+            completion(.failure(URLError(.badURL)))
+            return
+        }
+        
+        let task = URLSession.shared.dataTask(with: url) { data, response, error in
+            if let error = error {
+                completion(.failure(error))
+                return
+            }
+            
+            guard let response = response as? HTTPURLResponse, response.statusCode == 200 else {
+                completion(.failure(URLError(.badServerResponse)))
+                return
+            }
+            
+            guard let data = data else {
+                completion(.failure(URLError(.cannotDecodeContentData)))
+                return
+            }
+            
+            do {
+                let pokemonDetailed = try JSONDecoder().decode(PokemonDetailed.self, from: data)
+                completion(.success(pokemonDetailed))
+            } catch {
+                completion(.failure(error))
+            }
+        }
+        
+        task.resume()
+    }
+    
+    func loadImage(for url: URL, completion: @escaping (Result<UIImage, Error>) -> Void) {
+        let urlRequest = URLRequest(url: url)
         let task = URLSession.shared.dataTask(
             with: urlRequest,
             completionHandler: { (data, response, error) in
@@ -32,18 +102,12 @@ struct Network {
                     return
                 }
 
-                guard let data = data else {
+                guard let data = data, let image = UIImage(data: data) else {
                     completion(.failure(URLError(.cannotDecodeContentData)))
                     return
                 }
-                
-                do {
-                    let characters = try? JSONDecoder().decode(PokemonListResponse.self, from: data)
-                    guard let result = characters else {
-                        return
-                    }
-                    completion(.success(result))
-                }
+
+                completion(.success(image))
             }
         )
         task.resume()

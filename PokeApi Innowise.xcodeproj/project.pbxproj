@@ -28,7 +28,7 @@
 		79B978212B8008570033459F /* MainScreenWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79B9781B2B8008570033459F /* MainScreenWorker.swift */; };
 		79B978222B8008570033459F /* MainScreenRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79B9781C2B8008570033459F /* MainScreenRouter.swift */; };
 		79B978232B8008570033459F /* MainScreenModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79B9781D2B8008570033459F /* MainScreenModels.swift */; };
-		79B978242B8008570033459F /* MainScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79B9781E2B8008570033459F /* MainScreenViewController.swift */; };
+		79B978242B8008570033459F /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79B9781E2B8008570033459F /* MainViewController.swift */; };
 		79B978252B8008570033459F /* MainScreenInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79B9781F2B8008570033459F /* MainScreenInteractor.swift */; };
 		79B978292B8143EA0033459F /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79B978282B8143EA0033459F /* API.swift */; };
 		79B9782B2B81464B0033459F /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79B9782A2B81464B0033459F /* Network.swift */; };
@@ -59,7 +59,7 @@
 		79B9781B2B8008570033459F /* MainScreenWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenWorker.swift; sourceTree = "<group>"; };
 		79B9781C2B8008570033459F /* MainScreenRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenRouter.swift; sourceTree = "<group>"; };
 		79B9781D2B8008570033459F /* MainScreenModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenModels.swift; sourceTree = "<group>"; };
-		79B9781E2B8008570033459F /* MainScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenViewController.swift; sourceTree = "<group>"; };
+		79B9781E2B8008570033459F /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		79B9781F2B8008570033459F /* MainScreenInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenInteractor.swift; sourceTree = "<group>"; };
 		79B978282B8143EA0033459F /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
 		79B9782A2B81464B0033459F /* Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
@@ -132,7 +132,7 @@
 		79B9780C2B8006F20033459F /* MainScreen */ = {
 			isa = PBXGroup;
 			children = (
-				79B9781E2B8008570033459F /* MainScreenViewController.swift */,
+				79B9781E2B8008570033459F /* MainViewController.swift */,
 				79B9781F2B8008570033459F /* MainScreenInteractor.swift */,
 				79B9781A2B8008570033459F /* MainScreenPresenter.swift */,
 				79B9781B2B8008570033459F /* MainScreenWorker.swift */,
@@ -256,7 +256,7 @@
 				7964DC5B2B81FC6C003EBA3D /* UILabel + Extentions.swift in Sources */,
 				79B978252B8008570033459F /* MainScreenInteractor.swift in Sources */,
 				7964DC592B81FACA003EBA3D /* DetailsScreenView.swift in Sources */,
-				79B978242B8008570033459F /* MainScreenViewController.swift in Sources */,
+				79B978242B8008570033459F /* MainViewController.swift in Sources */,
 				79B977FE2B7FBDEF0033459F /* UIView + Extensions.swift in Sources */,
 				79B977EE2B7FBBCD0033459F /* ViewController.swift in Sources */,
 				79B978142B8007F40033459F /* DetailsScreenPresenter.swift in Sources */,

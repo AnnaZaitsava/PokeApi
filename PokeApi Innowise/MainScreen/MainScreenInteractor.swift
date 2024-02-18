@@ -13,7 +13,7 @@ protocol MainLogic {
 }
 
 protocol MainDataStore {
-    var chosenCharacter: Pokemon? { get set }
+    var chosenPokemon: Pokemon? { get set }
 }
 
 class MainInteractor: MainLogic, MainDataStore {
@@ -21,13 +21,13 @@ class MainInteractor: MainLogic, MainDataStore {
     var presenter: MainPresentationLogic?
     var worker: MainScreenWorker?
     var pokemons: [Pokemon] = []
-    var chosenCharacter: Pokemon?
+    var chosenPokemon: Pokemon?
     private let network = Network()
     
     // MARK: class functions
     
     func fetchPokemons(request: Main.displayPokemons.Request) {
-        network.fetchData { [weak self] result in
+        network.fetchPokemonList { [weak self] result in
             DispatchQueue.main.async {
                 switch result {
                 case .success(let result):
@@ -43,5 +43,6 @@ class MainInteractor: MainLogic, MainDataStore {
     }
     
     func saveSelectedItem(pokemon: Main.displayPokemons.ViewModel.pokemonList) {
+        chosenPokemon = pokemons.first { $0.url == pokemon.url }
     }
 }

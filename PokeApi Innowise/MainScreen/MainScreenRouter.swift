@@ -24,6 +24,10 @@ class MainRouter: NSObject, MainRoutingLogic, MainDataPassing {
     
     func routeToDetailedViewController() {
         let destinationVC = DetailsScreenViewController()
+        
+        var destinationDS = destinationVC.router!.dataStore!
+        passDataToSomewhere(source: dataStore!, destination: &destinationDS)
+        
         navigateToDetails(source: viewController!, destination: destinationVC)
         
     }
@@ -35,5 +39,12 @@ class MainRouter: NSObject, MainRoutingLogic, MainDataPassing {
         destination: DetailsScreenViewController) {
             source.navigationController?.pushViewController(destination, animated: true)
     }
+    
+    func passDataToSomewhere(
+        source: MainDataStore,
+        destination: inout DetailedDataStore) {
+            destination.chosenPokemon = source.chosenPokemon
+    }
+
 }
 
