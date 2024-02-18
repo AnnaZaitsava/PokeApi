@@ -86,6 +86,7 @@ class MainViewController: UIViewController, MainDisplayLogic {
     
     private func setupNavBar() {
         self.navigationItem.title = "Pokemons"
+        
     }
     
     private func setupConstraints() {

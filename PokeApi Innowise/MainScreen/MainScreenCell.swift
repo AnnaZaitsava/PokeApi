@@ -17,7 +17,7 @@ class MainScreenCell: UITableViewCell {
         let label = UILabel()
         label.text = "Pokemon"
         label.textColor = .black
-        label.font = UIFont(name: "Futura", size: 20)
+        label.font = .bold20()
         return label
     }()
     

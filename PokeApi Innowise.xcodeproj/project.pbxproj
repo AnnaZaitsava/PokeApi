@@ -7,12 +7,17 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7964DC592B81FACA003EBA3D /* DetailsScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7964DC582B81FACA003EBA3D /* DetailsScreenView.swift */; };
+		7964DC5B2B81FC6C003EBA3D /* UILabel + Extentions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7964DC5A2B81FC6C003EBA3D /* UILabel + Extentions.swift */; };
+		7964DC5E2B820487003EBA3D /* Poppins-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7964DC5D2B820487003EBA3D /* Poppins-Medium.ttf */; };
+		7964DC602B82048F003EBA3D /* Poppins-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7964DC5F2B82048F003EBA3D /* Poppins-ExtraBold.ttf */; };
+		7964DC632B8206A0003EBA3D /* UIFonts + Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7964DC622B8206A0003EBA3D /* UIFonts + Extensions.swift */; };
 		79B977EA2B7FBBCD0033459F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79B977E92B7FBBCD0033459F /* AppDelegate.swift */; };
 		79B977EC2B7FBBCD0033459F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79B977EB2B7FBBCD0033459F /* SceneDelegate.swift */; };
 		79B977EE2B7FBBCD0033459F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79B977ED2B7FBBCD0033459F /* ViewController.swift */; };
 		79B977F32B7FBBCF0033459F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 79B977F22B7FBBCF0033459F /* Assets.xcassets */; };
 		79B977F62B7FBBCF0033459F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 79B977F42B7FBBCF0033459F /* LaunchScreen.storyboard */; };
-		79B977FE2B7FBDEF0033459F /* UIView + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79B977FD2B7FBDEF0033459F /* UIView + Extension.swift */; };
+		79B977FE2B7FBDEF0033459F /* UIView + Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79B977FD2B7FBDEF0033459F /* UIView + Extensions.swift */; };
 		79B978142B8007F40033459F /* DetailsScreenPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79B9780E2B8007F40033459F /* DetailsScreenPresenter.swift */; };
 		79B978152B8007F40033459F /* DetailsScreenWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79B9780F2B8007F40033459F /* DetailsScreenWorker.swift */; };
 		79B978162B8007F40033459F /* DetailsScreenRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79B978102B8007F40033459F /* DetailsScreenRouter.swift */; };
@@ -31,6 +36,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		7964DC582B81FACA003EBA3D /* DetailsScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsScreenView.swift; sourceTree = "<group>"; };
+		7964DC5A2B81FC6C003EBA3D /* UILabel + Extentions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel + Extentions.swift"; sourceTree = "<group>"; };
+		7964DC5D2B820487003EBA3D /* Poppins-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Medium.ttf"; sourceTree = "<group>"; };
+		7964DC5F2B82048F003EBA3D /* Poppins-ExtraBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-ExtraBold.ttf"; sourceTree = "<group>"; };
+		7964DC622B8206A0003EBA3D /* UIFonts + Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFonts + Extensions.swift"; sourceTree = "<group>"; };
 		79B977E62B7FBBCD0033459F /* PokeApi Innowise.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "PokeApi Innowise.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		79B977E92B7FBBCD0033459F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		79B977EB2B7FBBCD0033459F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -38,7 +48,7 @@
 		79B977F22B7FBBCF0033459F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		79B977F52B7FBBCF0033459F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		79B977F72B7FBBCF0033459F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		79B977FD2B7FBDEF0033459F /* UIView + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView + Extension.swift"; sourceTree = "<group>"; };
+		79B977FD2B7FBDEF0033459F /* UIView + Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView + Extensions.swift"; sourceTree = "<group>"; };
 		79B9780E2B8007F40033459F /* DetailsScreenPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsScreenPresenter.swift; sourceTree = "<group>"; };
 		79B9780F2B8007F40033459F /* DetailsScreenWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsScreenWorker.swift; sourceTree = "<group>"; };
 		79B978102B8007F40033459F /* DetailsScreenRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsScreenRouter.swift; sourceTree = "<group>"; };
@@ -67,6 +77,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7964DC5C2B820460003EBA3D /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				7964DC5F2B82048F003EBA3D /* Poppins-ExtraBold.ttf */,
+				7964DC5D2B820487003EBA3D /* Poppins-Medium.ttf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
 		79B977DD2B7FBBCD0033459F = {
 			isa = PBXGroup;
 			children = (
@@ -102,7 +121,10 @@
 		79B977FF2B7FBDF30033459F /* Extentions */ = {
 			isa = PBXGroup;
 			children = (
-				79B977FD2B7FBDEF0033459F /* UIView + Extension.swift */,
+				7964DC5C2B820460003EBA3D /* Fonts */,
+				79B977FD2B7FBDEF0033459F /* UIView + Extensions.swift */,
+				7964DC622B8206A0003EBA3D /* UIFonts + Extensions.swift */,
+				7964DC5A2B81FC6C003EBA3D /* UILabel + Extentions.swift */,
 			);
 			path = Extentions;
 			sourceTree = "<group>";
@@ -125,6 +147,7 @@
 			isa = PBXGroup;
 			children = (
 				79B978122B8007F40033459F /* DetailsScreenViewController.swift */,
+				7964DC582B81FACA003EBA3D /* DetailsScreenView.swift */,
 				79B978132B8007F40033459F /* DetailsScreenInteractor.swift */,
 				79B9780E2B8007F40033459F /* DetailsScreenPresenter.swift */,
 				79B9780F2B8007F40033459F /* DetailsScreenWorker.swift */,
@@ -210,6 +233,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7964DC602B82048F003EBA3D /* Poppins-ExtraBold.ttf in Resources */,
+				7964DC5E2B820487003EBA3D /* Poppins-Medium.ttf in Resources */,
 				79B977F62B7FBBCF0033459F /* LaunchScreen.storyboard in Resources */,
 				79B977F32B7FBBCF0033459F /* Assets.xcassets in Resources */,
 			);
@@ -228,9 +253,11 @@
 				79B978232B8008570033459F /* MainScreenModels.swift in Sources */,
 				79B978152B8007F40033459F /* DetailsScreenWorker.swift in Sources */,
 				79B978202B8008570033459F /* MainScreenPresenter.swift in Sources */,
+				7964DC5B2B81FC6C003EBA3D /* UILabel + Extentions.swift in Sources */,
 				79B978252B8008570033459F /* MainScreenInteractor.swift in Sources */,
+				7964DC592B81FACA003EBA3D /* DetailsScreenView.swift in Sources */,
 				79B978242B8008570033459F /* MainScreenViewController.swift in Sources */,
-				79B977FE2B7FBDEF0033459F /* UIView + Extension.swift in Sources */,
+				79B977FE2B7FBDEF0033459F /* UIView + Extensions.swift in Sources */,
 				79B977EE2B7FBBCD0033459F /* ViewController.swift in Sources */,
 				79B978142B8007F40033459F /* DetailsScreenPresenter.swift in Sources */,
 				79B978192B8007F40033459F /* DetailsScreenInteractor.swift in Sources */,
@@ -238,6 +265,7 @@
 				79B977EA2B7FBBCD0033459F /* AppDelegate.swift in Sources */,
 				79B978182B8007F40033459F /* DetailsScreenViewController.swift in Sources */,
 				79B9782B2B81464B0033459F /* Network.swift in Sources */,
+				7964DC632B8206A0003EBA3D /* UIFonts + Extensions.swift in Sources */,
 				79B977EC2B7FBBCD0033459F /* SceneDelegate.swift in Sources */,
 				79B978292B8143EA0033459F /* API.swift in Sources */,
 				79B978222B8008570033459F /* MainScreenRouter.swift in Sources */,
