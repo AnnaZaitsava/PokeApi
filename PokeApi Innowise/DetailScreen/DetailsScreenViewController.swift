@@ -26,7 +26,7 @@ class DetailsScreenViewController: UIViewController, DetailsDisplayLogic {
     
     private lazy var pokemonImage: UIImageView = {
         let view = UIImageView()
-        view.backgroundColor = .black
+        view.backgroundColor = .clear
         return view
     }()
     
@@ -90,6 +90,7 @@ class DetailsScreenViewController: UIViewController, DetailsDisplayLogic {
         typeValue.text = viewModel.types
         weightValue.text = viewModel.weight
         heightValue.text = viewModel.height
+        pokemonImage.image = viewModel.sprites
     }
     
     

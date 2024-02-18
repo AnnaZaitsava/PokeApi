@@ -11,16 +11,18 @@ enum Details {
     
     enum displayDetailedInformation {
         struct Response {
+            let name: String
             let height: Int
             let weight: Int
             let types: [PokemonType]
-//            let sprites: Data
+            let sprites: Data
         }
         struct ViewModel {
-                let height: String
-                let weight: String
-                let types: String
-//                let image: Data
+            let name: String
+            let height: String
+            let weight: String
+            let types: String
+            let sprites: UIImage
         }
     }
 }

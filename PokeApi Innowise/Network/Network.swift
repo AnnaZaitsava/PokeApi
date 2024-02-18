@@ -82,34 +82,20 @@ struct Network {
         task.resume()
     }
     
-    func loadImage(for url: URL, completion: @escaping (Result<UIImage, Error>) -> Void) {
-        let urlRequest = URLRequest(url: url)
-        let task = URLSession.shared.dataTask(
-            with: urlRequest,
-            completionHandler: { (data, response, error) in
-                if let error = error {
-                    completion(.failure(error))
-                    return
-                }
+    func loadImage(from url: URL, completion: @escaping (UIImage?) -> Void) {
+           URLSession.shared.dataTask(with: url) { data, response, error in
+               if let error = error {
+                   print("Error loading image: \(error)")
+                   completion(nil)
+                   return
+               }
 
-                guard let response = response as? HTTPURLResponse else {
-                    completion(.failure(URLError(.badServerResponse)))
-                    return
-                }
-
-                guard response.statusCode == 200 else {
-                    completion(.failure(URLError(.badServerResponse)))
-                    return
-                }
-
-                guard let data = data, let image = UIImage(data: data) else {
-                    completion(.failure(URLError(.cannotDecodeContentData)))
-                    return
-                }
-
-                completion(.success(image))
-            }
-        )
-        task.resume()
-    }
+               if let data = data, let image = UIImage(data: data) {
+                   completion(image)
+               } else {
+                   print("Error creating image from data")
+                   completion(nil)
+               }
+           }.resume()
+       }
 }
