@@ -14,8 +14,6 @@ protocol MainPresentationLogic {
 class MainPresenter: MainPresentationLogic {
     weak var viewController: MainDisplayLogic?
     
-    // MARK: Do something
-    
     func displayFetchedPokemons(response: Main.displayPokemons.Response) {
         
         let pokemonsArray = response.pokemons

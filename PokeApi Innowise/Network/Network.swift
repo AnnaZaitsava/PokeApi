@@ -12,8 +12,13 @@ typealias Completion = ((Result<PokemonListResponse, Error>) -> Void)
 struct Network {
     private let url = URL(string: "https://pokeapi.co/api/v2/pokemon")
     
-    func fetchPokemonList(completion:  @escaping Completion) {
-        let urlRequest = URLRequest(url: url ?? URL(fileURLWithPath: ""))
+    func fetchPokemonList(url: String, completion: @escaping Completion) {
+        guard let url = URL(string: url) else {
+            completion(.failure(URLError(.badURL)))
+            return
+        }
+        
+        let urlRequest = URLRequest(url: url)
         let task = URLSession.shared.dataTask(
             with: urlRequest,
             completionHandler: { (data, response, error) in
@@ -81,6 +86,7 @@ struct Network {
         
         task.resume()
     }
+
     
     func loadImage(from url: URL, completion: @escaping (UIImage?) -> Void) {
            URLSession.shared.dataTask(with: url) { data, response, error in
@@ -98,4 +104,5 @@ struct Network {
                }
            }.resume()
        }
+
 }

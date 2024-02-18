@@ -8,6 +8,8 @@
 import Foundation
 
 struct PokemonListResponse: Codable {
+    let next: String?
+    let previous: String?
     let results: [Pokemon]
 }
 

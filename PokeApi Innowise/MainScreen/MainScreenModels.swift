@@ -15,6 +15,7 @@ enum Main {
         }
         
         struct Response {
+            let next: String
             let pokemons: [Pokemon]
         }
         

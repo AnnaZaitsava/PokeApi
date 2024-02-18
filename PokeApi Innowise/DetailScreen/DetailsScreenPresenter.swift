@@ -14,8 +14,8 @@ class DetailsScreenPresenter: DetailedPresentationLogic {
     weak var viewController: DetailsDisplayLogic?
     
     func presentDetailedInformation(response: Details.displayDetailedInformation.Response) {
-        let height = "\(response.height) cm"
-        let weight = "\(response.weight) kg"
+        let height = "\(response.height * 10) cm"
+        let weight = "\(response.weight / 10) kg"
         let typesString = response.types.map { $0.type.name }.joined(separator: ", ")
         
         if let image = UIImage(data: response.sprites) {
