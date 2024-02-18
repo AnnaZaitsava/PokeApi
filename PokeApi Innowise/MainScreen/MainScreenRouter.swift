@@ -1,0 +1,39 @@
+//
+//  MainScreenRouter.swift
+//  PokeApi Innowise
+//
+//  Created by Anna Zaitsava on 17.02.24.
+
+
+import UIKit
+
+@objc protocol MainRoutingLogic {
+    func routeToDetailedViewController()
+}
+
+protocol MainDataPassing {
+    var dataStore: MainDataStore? { get }
+}
+
+class MainRouter: NSObject, MainRoutingLogic, MainDataPassing {
+    
+    weak var viewController: MainViewController?
+    var dataStore: MainDataStore?
+    
+    // MARK: Routing
+    
+    func routeToDetailedViewController() {
+        let destinationVC = DetailsScreenViewController()
+        navigateToDetails(source: viewController!, destination: destinationVC)
+        
+    }
+    
+    // MARK: Navigation
+    
+    func navigateToDetails(
+        source: MainViewController,
+        destination: DetailsScreenViewController) {
+            source.navigationController?.pushViewController(destination, animated: true)
+    }
+}
+
