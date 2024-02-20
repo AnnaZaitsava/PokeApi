@@ -19,6 +19,7 @@ class DetailsScreenInteractor: DetailedBusinessLogic, DetailedDataStore {
     let network = Network()
     var presenter: DetailedPresentationLogic?
     var worker: DetailsScreenWorker?
+    var realm = RealmService()
     
     
     
@@ -39,12 +40,14 @@ class DetailsScreenInteractor: DetailedBusinessLogic, DetailedDataStore {
                                 if let image = loadedImage {
                                     if let pngImageData = image.pngData() {
                                         let response = DetailsScreenDataFlow.Info.Response(
+                                            id: pokemonDetailed.id,
                                             name: pokemonDetailed.name,
                                             height: pokemonDetailed.height,
                                             weight: pokemonDetailed.weight,
                                             types: pokemonDetailed.types,
                                             sprites: pngImageData
                                         )
+                                        self?.realm.updatePokemonInRealmIfNeeded(response: DetailsScreenDataFlow.Info.Response(id: response.id, name: response.name, height: response.height, weight: response.weight, types: response.types, sprites: response.sprites))
                                         self?.presenter?.presentDetailedInformation(response: response)
                                     } else {
                                         print("Failed to convert image to PNG data")

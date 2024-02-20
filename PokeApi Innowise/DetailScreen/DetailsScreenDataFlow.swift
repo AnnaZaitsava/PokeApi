@@ -10,6 +10,7 @@ import UIKit
 enum DetailsScreenDataFlow {
     enum Info {
         struct Response {
+            let id: Int
             let name: String
             let height: Int
             let weight: Int

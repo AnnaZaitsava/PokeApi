@@ -77,6 +77,12 @@ extension MainViewController: MainDisplayLogic {
 // MARK: - UITableViewDelegate
 
 extension MainViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        if indexPath.row == pokemons.count - 1 {
+            requestList()
+        }
+    }
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print ("\(pokemons[indexPath.row])")
         interactor?.saveSelectedItem(pokemon: pokemons[indexPath.row])

@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import RealmSwift
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -13,6 +14,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        if let realmURL = Realm.Configuration.defaultConfiguration.fileURL {
+                    print("Путь к файлу базы данных Realm: \(realmURL)")
+                } else {
+                    print("Файл базы данных Realm не найден.")
+                }
         // Override point for customization after application launch.
         return true
     }
