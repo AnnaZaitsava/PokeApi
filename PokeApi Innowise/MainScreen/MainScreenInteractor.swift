@@ -29,43 +29,95 @@ class MainInteractor: MainLogic, MainDataStore {
     
     // MARK: class functions
     
-    
-
     func fetchPokemons(request: MainScreenDataFlow.Pokemons.Request) {
-            let url = nextPageUrl ?? "https://pokeapi.co/api/v2/pokemon"
-            fetchPokemons(next: url)
+        if NetworkPathMonitor.shared.getCurrentNetworkStatus() == .connected {
+            fetchDataFromNetwork()
+        } else {
+            fetchDataFromDatabase()
         }
-        
-        private func fetchPokemons(next: String) {
-            network.fetchPokemonList(url: next) { [weak self] result in
-                DispatchQueue.main.async {
-                    switch result {
-                    case .success(let result):
-                        let pokemons = result.results
-                        self?.pokemons += pokemons
-                        let response = MainScreenDataFlow.Pokemons.Response(next: result.next ?? "", pokemons: self?.pokemons ?? [])
-                        
-                        for pokemon in pokemons {
-                            self?.realm.savePokemonToRealm(url: pokemon.url, name: pokemon.name) { success in
-                                if success {
-                                    print("Pokemon saved successfully.")
-                                } else {
-                                    print("Failed to save Pokemon.")
-                                }
+    }
+
+    private func fetchDataFromNetwork() {
+        let url = nextPageUrl ?? "https://pokeapi.co/api/v2/pokemon"
+        network.fetchPokemonList(url: url) { [weak self] result in
+            DispatchQueue.main.async {
+                switch result {
+                case .success(let result):
+                    let pokemons = result.results
+                    self?.pokemons += pokemons
+                    let response = MainScreenDataFlow.Pokemons.Response(next: result.next ?? "", pokemons: self?.pokemons ?? [])
+                    
+                    for pokemon in pokemons {
+                        self?.realm.savePokemonToRealm(url: pokemon.url, name: pokemon.name) { success in
+                            if success {
+                                print("Pokemon saved successfully.")
+                            } else {
+                                print("Failed to save Pokemon.")
                             }
-                                       }
-                        self?.presenter?.presentFetchedPokemons(response: response)
-                        
-                        if let nextPageUrl = result.next {
-                            self?.nextPageUrl = nextPageUrl
                         }
-                        
-                    case .failure(let failure):
-                        print(failure)
                     }
+                    self?.presenter?.presentFetchedPokemons(response: response)
+                    
+                    if let nextPageUrl = result.next {
+                        self?.nextPageUrl = nextPageUrl
+                    }
+                    
+                case .failure(let failure):
+                    print(failure)
                 }
             }
         }
+    }
+    
+    private func fetchDataFromDatabase() {
+        let savedPokemons = realm.getPokemonsFromRealm()
+        let pokemons = savedPokemons.map { pokemon -> Pokemon in
+            return Pokemon(url: pokemon.url, name: pokemon.name)
+        }
+        
+        let response = MainScreenDataFlow.Pokemons.Response(next: "", pokemons: pokemons)
+        presenter?.presentFetchedPokemons(response: response)
+    }
+
+
+    
+    
+//
+//    func fetchPokemons(request: MainScreenDataFlow.Pokemons.Request) {
+//            let url = nextPageUrl ?? "https://pokeapi.co/api/v2/pokemon"
+//            fetchPokemons(next: url)
+//        }
+//
+//        private func fetchPokemons(next: String) {
+//            network.fetchPokemonList(url: next) { [weak self] result in
+//                DispatchQueue.main.async {
+//                    switch result {
+//                    case .success(let result):
+//                        let pokemons = result.results
+//                        self?.pokemons += pokemons
+//                        let response = MainScreenDataFlow.Pokemons.Response(next: result.next ?? "", pokemons: self?.pokemons ?? [])
+//
+//                        for pokemon in pokemons {
+//                            self?.realm.savePokemonToRealm(url: pokemon.url, name: pokemon.name) { success in
+//                                if success {
+//                                    print("Pokemon saved successfully.")
+//                                } else {
+//                                    print("Failed to save Pokemon.")
+//                                }
+//                            }
+//                                       }
+//                        self?.presenter?.presentFetchedPokemons(response: response)
+//
+//                        if let nextPageUrl = result.next {
+//                            self?.nextPageUrl = nextPageUrl
+//                        }
+//
+//                    case .failure(let failure):
+//                        print(failure)
+//                    }
+//                }
+//            }
+//        }
     
     func saveSelectedItem(pokemon: MainScreenDataFlow.Pokemons.ViewModel.PokemonList) {
         chosenPokemon = pokemons.first { $0.url == pokemon.url }

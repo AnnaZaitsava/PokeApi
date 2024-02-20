@@ -7,6 +7,7 @@
 
 import UIKit
 import RealmSwift
+import Network
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {

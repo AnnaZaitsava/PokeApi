@@ -42,6 +42,26 @@ class RealmService {
         }
     }
     
+//    func updatePokemonInRealmIfNeeded(response: DetailsScreenDataFlow.Info.Response) {
+//        do {
+//            if let existingPokemon = realm.objects(ItemPokemon.self).filter("name == %@", response.name).first {
+//                try realm.write {
+//                    existingPokemon.name = response.name
+//                    existingPokemon.height = response.height
+//                    existingPokemon.weight = response.weight
+//                    existingPokemon.types.removeAll()
+//                    existingPokemon.types.append(objectsIn: response.types.map { $0.type.name })
+//                    existingPokemon.sprites = response.sprites
+//                }
+//                print("Pokemon with name \(response.name) has been updated in the database.")
+//            } else {
+//                print("Pokemon with name \(response.name) not found in the database.")
+//            }
+//        } catch {
+//            print("Error updating pokemon in Realm: \(error)")
+//        }
+//    }
+    
     func updatePokemonInRealmIfNeeded(response: DetailsScreenDataFlow.Info.Response) {
         do {
             if let existingPokemon = realm.objects(ItemPokemon.self).filter("name == %@", response.name).first {
@@ -50,7 +70,9 @@ class RealmService {
                     existingPokemon.height = response.height
                     existingPokemon.weight = response.weight
                     existingPokemon.types.removeAll()
-                    existingPokemon.types.append(objectsIn: response.types.map { $0.type.name })
+                    for pokemonType in response.types {
+                        existingPokemon.types.append(pokemonType.type.name)
+                    }
                     existingPokemon.sprites = response.sprites
                 }
                 print("Pokemon with name \(response.name) has been updated in the database.")
@@ -61,6 +83,7 @@ class RealmService {
             print("Error updating pokemon in Realm: \(error)")
         }
     }
+
     
     func getPokemonsFromRealm() -> [ItemPokemon] {
         let pokemons = realm.objects(ItemPokemon.self)

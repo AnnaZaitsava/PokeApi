@@ -8,6 +8,7 @@ import UIKit
 
 protocol DetailedPresentationLogic {
     func presentDetailedInformation(response: DetailsScreenDataFlow.Info.Response)
+    func showAlertNoDataInDatabase()
 }
 
 class DetailsScreenPresenter: DetailedPresentationLogic {
@@ -30,6 +31,16 @@ class DetailsScreenPresenter: DetailedPresentationLogic {
         } else {
             print("Failed to convert image")
         }
+    }
+    
+    func showAlertNoDataInDatabase() {
+        guard let viewController = viewController as? UIViewController else {
+            return
+        }
+        
+        let alert = UIAlertController(title: "Pokemons Not Found", message: "Please connect to the network", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        viewController.present(alert, animated: true, completion: nil)
     }
 }
 
