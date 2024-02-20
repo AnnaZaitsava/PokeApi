@@ -8,23 +8,23 @@
 import UIKit
 
 protocol MainPresentationLogic {
-    func displayFetchedPokemons(response: Main.displayPokemons.Response)
+    func presentFetchedPokemons(response: MainScreenDataFlow.Pokemons.Response)
 }
 
 class MainPresenter: MainPresentationLogic {
     weak var viewController: MainDisplayLogic?
     
-    func displayFetchedPokemons(response: Main.displayPokemons.Response) {
+    func presentFetchedPokemons(response: MainScreenDataFlow.Pokemons.Response) {
         
         let pokemonsArray = response.pokemons
-              
-              let viewModel = Main.displayPokemons.ViewModel(
-                  pokemonListViewModel: pokemonsArray.map { pokemon in
-                      return Main.displayPokemons.ViewModel.pokemonList(url: pokemon.url, name: pokemon.name)
-                  }
-              )
-              
-              viewController?.updatePokemonList(viewModel: viewModel)
-          }
-      }
+        
+        let viewModel = MainScreenDataFlow.Pokemons.ViewModel(
+            pokemonListViewModel: pokemonsArray.map { pokemon in
+                return MainScreenDataFlow.Pokemons.ViewModel.PokemonList(url: pokemon.url, name: pokemon.name)
+            }
+        )
+        
+        viewController?.displayPokemonList(viewModel: viewModel)
+    }
+}
 

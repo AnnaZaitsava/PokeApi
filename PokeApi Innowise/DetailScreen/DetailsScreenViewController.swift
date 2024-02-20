@@ -4,19 +4,25 @@
 //
 //  Created by Anna Zaitsava on 17.02.24.
 
-
 import UIKit
+import Lottie
 
 protocol DetailsDisplayLogic: AnyObject {
-    func updateData(viewModel: Details.displayDetailedInformation.ViewModel)
+    func displayData(viewModel: DetailsScreenDataFlow.Info.ViewModel)
 }
 
-class DetailsScreenViewController: UIViewController, DetailsDisplayLogic {
+class DetailsScreenViewController: UIViewController {
     
     // MARK: variables
     
     var interactor: DetailedBusinessLogic?
     var router: (NSObjectProtocol & DetailedRoutingLogic & DetailedDataPassing)?
+    
+    private var isLoading = false {
+        didSet {
+            handleLoading()
+        }
+    }
     
     private lazy var  bgView: UIImageView = {
         let view = UIImageView()
@@ -30,39 +36,74 @@ class DetailsScreenViewController: UIViewController, DetailsDisplayLogic {
         return view
     }()
     
-    private lazy var typeLabel = UILabel(text: "Type", textColor: .black)
-    private lazy var weightLabel = UILabel(text: "Weight", textColor: .black)
-    private lazy var heightLabel = UILabel(text: "Height", textColor: .black)
+    private var typeLabel = UILabel(text: "Type", textColor: .black)
+    private var weightLabel = UILabel(text: "Weight", textColor: .black)
+    private var heightLabel = UILabel(text: "Height", textColor: .black)
     
-    private lazy var typeBg = UIView.makeBgView(bgColor: .white)
-    private lazy var weightBg = UIView.makeBgView(bgColor: .white)
-    private lazy var heightBg = UIView.makeBgView(bgColor: .white)
+    private var typeBg = UIView.makeBgView(bgColor: .white)
+    private var weightBg = UIView.makeBgView(bgColor: .white)
+    private var heightBg = UIView.makeBgView(bgColor: .white)
     
-    private lazy var typeValue = UILabel(text: "Type",
+    private var typeValue = UILabel(text: "Type",
                                          font: .medium18(),
                                          textColor: .black)
-    private lazy var weightValue = UILabel(text: "Weight",
+    private var weightValue = UILabel(text: "Weight",
                                            font: .medium18(),
                                            textColor: .black)
-    private lazy var heightValue = UILabel(text: "Height",
+    private var heightValue = UILabel(text: "Height",
                                            font: .medium18(),
                                            textColor: .black)
+    
+    private let loaderView: LottieAnimationView = {
+        let view = LottieAnimationView(name: "loading-circle-animation")
+        view.animationSpeed = 1
+        view.loopMode = .loop
+        view.tintColor = .blue
+        view.contentMode = .center
+        return view
+    }()
     
     // MARK: Initialization
     
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
-        setup()
+        build()
     }
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
-        setup()
+        build()
     }
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        view.backgroundColor = .white
+        addSubviews()
+        makeConstraints()
+        showDetailedCharacterInformation()
+    }
+    
+    func showDetailedCharacterInformation() {
+        isLoading = true
+        interactor?.fetchDetailedInformation()
+    }
+}
+
+extension DetailsScreenViewController: DetailsDisplayLogic {
+    func displayData(viewModel: DetailsScreenDataFlow.Info.ViewModel) {
+        isLoading = false
+        typeValue.text = viewModel.types
+        weightValue.text = viewModel.weight
+        heightValue.text = viewModel.height
+        pokemonImage.image = viewModel.sprites
+        self.navigationItem.title = viewModel.name
+    }
+}
+
+private extension DetailsScreenViewController {
     // MARK: Setup
     
-    private func setup() {
+    func build() {
         let viewController = self
         let interactor = DetailsScreenInteractor()
         let presenter = DetailsScreenPresenter()
@@ -75,29 +116,61 @@ class DetailsScreenViewController: UIViewController, DetailsDisplayLogic {
         router.dataStore = interactor
     }
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        view.backgroundColor = .white
-        setupUI()
-        showDetailedCharacterInformation()
+    func handleLoading() {
+        if isLoading {
+            loaderView.isHidden = false
+            loaderView.play()
+        } else {
+            loaderView.isHidden = true
+            loaderView.stop()
+        }
+        updateView(isLoading)
     }
     
-    func showDetailedCharacterInformation() {
-        interactor?.fetchDetailedInformation()
+    func updateView(_ isLoading: Bool) {
+        if isLoading {
+            pokemonImage.isHidden = true
+            typeLabel.isHidden = true
+            weightLabel.isHidden = true
+            heightLabel.isHidden = true
+            typeBg.isHidden = true
+            weightBg.isHidden = true
+            heightBg.isHidden = true
+            typeValue.isHidden = true
+            weightValue.isHidden = true
+            heightValue.isHidden = true
+        } else {
+            pokemonImage.isHidden = false
+            typeLabel.isHidden = false
+            weightLabel.isHidden = false
+            heightLabel.isHidden = false
+            typeBg.isHidden = true
+            weightBg.isHidden = true
+            heightBg.isHidden = true
+            typeValue.isHidden = false
+            weightValue.isHidden = false
+            heightValue.isHidden = false
+        }
     }
     
-    func updateData(viewModel: Details.displayDetailedInformation.ViewModel) {
-        typeValue.text = viewModel.types
-        weightValue.text = viewModel.weight
-        heightValue.text = viewModel.height
-        pokemonImage.image = viewModel.sprites
+    func addSubviews() {
+        view.addSubviews(
+            bgView,
+            pokemonImage,
+            typeLabel,
+            weightLabel,
+            heightLabel,
+            typeBg,
+            weightBg,
+            heightBg,
+            typeValue,
+            weightValue,
+            heightValue,
+            loaderView
+        )
     }
     
-    
-    private func setupUI() {
-        
-        view.addSubviews(bgView, pokemonImage, typeLabel, weightLabel, heightLabel, typeBg, weightBg, heightBg, typeValue, weightValue, heightValue)
-        
+    func makeConstraints() {
         let offset: CGFloat = 50
         
         NSLayoutConstraint.activate([
@@ -131,8 +204,8 @@ class DetailsScreenViewController: UIViewController, DetailsDisplayLogic {
             heightLabel.centerYAnchor.constraint(equalTo: heightBg.centerYAnchor),
             heightLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: offset),
             
+            loaderView.centerYAnchor.constraint(equalTo: view.centerYAnchor),
+            loaderView.centerXAnchor.constraint(equalTo: view.centerXAnchor)
         ])
     }
 }
-
-

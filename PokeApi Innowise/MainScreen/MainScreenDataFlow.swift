@@ -1,5 +1,5 @@
 //
-//  MainScreenModels.swift
+//  MainScreenDataFlow.swift
 //  PokeApi Innowise
 //
 //  Created by Anna Zaitsava on 17.02.24.
@@ -7,12 +7,9 @@
 
 import UIKit
 
-enum Main {
-    
-    enum displayPokemons {
-        
-        struct Request {
-        }
+enum MainScreenDataFlow {
+    enum Pokemons {
+        struct Request { }
         
         struct Response {
             let next: String
@@ -20,11 +17,11 @@ enum Main {
         }
         
         struct ViewModel {
-            struct pokemonList {
+            struct PokemonList {
                 let url: String
                 let name: String
             }
-            var pokemonListViewModel: [pokemonList]
+            let pokemonListViewModel: [PokemonList]
         }
     }
 }

@@ -7,6 +7,4 @@
 
 import UIKit
 
-class MainScreenWorker
-{
-}
+class MainScreenWorker { }

@@ -23,12 +23,12 @@ class MainRouter: NSObject, MainRoutingLogic, MainDataPassing {
     // MARK: Routing
     
     func routeToDetailedViewController() {
-        let destinationVC = DetailsScreenViewController()
+        let destinationViewController = DetailsScreenViewController()
         
-        var destinationDS = destinationVC.router!.dataStore!
-        passDataToSomewhere(source: dataStore!, destination: &destinationDS)
+        var destinationDataSource = destinationViewController.router!.dataStore!
+        passDataToSomewhere(source: dataStore!, destination: &destinationDataSource)
         
-        navigateToDetails(source: viewController!, destination: destinationVC)
+        navigateToDetails(source: viewController!, destination: destinationViewController)
         
     }
     
@@ -47,4 +47,3 @@ class MainRouter: NSObject, MainRoutingLogic, MainDataPassing {
     }
 
 }
-

@@ -34,26 +34,28 @@ class MainScreenCell: UITableViewCell {
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        setupSubviews()
-        setupConstraints()
+        addSubviews()
+        makeConstraints()
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
-    // MARK: Private methods
-    
+        
     func configureCell(withName name: String) {
         nameLabel.text = name
     }
-    
-    private func setupSubviews() {
+}
+
+// MARK: Private methods
+
+private extension MainScreenCell {
+    func addSubviews() {
         contentView.addSubviews(bgView)
         bgView.addSubviews(nameLabel)
     }
     
-    private func setupConstraints() {
+    func makeConstraints() {
         let constant: CGFloat = 24
         
         NSLayoutConstraint.activate([
@@ -64,5 +66,5 @@ class MainScreenCell: UITableViewCell {
             nameLabel.centerXAnchor.constraint(equalTo: bgView.centerXAnchor),
             nameLabel.centerYAnchor.constraint(equalTo: bgView.centerYAnchor)
         ])
-    }    
+    }
 }

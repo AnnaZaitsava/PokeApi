@@ -6,17 +6,13 @@
 
 import UIKit
 
-@objc protocol DetailedRoutingLogic {
-}
+@objc protocol DetailedRoutingLogic { }
 
 protocol DetailedDataPassing {
     var dataStore: DetailedDataStore? { get }
 }
 
 class DetailsScreenRouter: NSObject, DetailedRoutingLogic, DetailedDataPassing {
-        weak var viewController: DetailsScreenViewController?
-        var dataStore: DetailedDataStore?
-
-    }
-    
-
+    weak var viewController: DetailsScreenViewController?
+    var dataStore: DetailedDataStore?
+}

@@ -13,28 +13,30 @@
 		7964DC632B8206A0003EBA3D /* UIFonts + Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7964DC622B8206A0003EBA3D /* UIFonts + Extensions.swift */; };
 		79B977EA2B7FBBCD0033459F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79B977E92B7FBBCD0033459F /* AppDelegate.swift */; };
 		79B977EC2B7FBBCD0033459F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79B977EB2B7FBBCD0033459F /* SceneDelegate.swift */; };
-		79B977EE2B7FBBCD0033459F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79B977ED2B7FBBCD0033459F /* ViewController.swift */; };
 		79B977F32B7FBBCF0033459F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 79B977F22B7FBBCF0033459F /* Assets.xcassets */; };
 		79B977F62B7FBBCF0033459F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 79B977F42B7FBBCF0033459F /* LaunchScreen.storyboard */; };
 		79B977FE2B7FBDEF0033459F /* UIView + Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79B977FD2B7FBDEF0033459F /* UIView + Extensions.swift */; };
 		79B978142B8007F40033459F /* DetailsScreenPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79B9780E2B8007F40033459F /* DetailsScreenPresenter.swift */; };
 		79B978152B8007F40033459F /* DetailsScreenWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79B9780F2B8007F40033459F /* DetailsScreenWorker.swift */; };
 		79B978162B8007F40033459F /* DetailsScreenRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79B978102B8007F40033459F /* DetailsScreenRouter.swift */; };
-		79B978172B8007F40033459F /* DetailsScreenModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79B978112B8007F40033459F /* DetailsScreenModels.swift */; };
+		79B978172B8007F40033459F /* DetailsScreenDataFlow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79B978112B8007F40033459F /* DetailsScreenDataFlow.swift */; };
 		79B978182B8007F40033459F /* DetailsScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79B978122B8007F40033459F /* DetailsScreenViewController.swift */; };
 		79B978192B8007F40033459F /* DetailsScreenInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79B978132B8007F40033459F /* DetailsScreenInteractor.swift */; };
 		79B978202B8008570033459F /* MainScreenPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79B9781A2B8008570033459F /* MainScreenPresenter.swift */; };
 		79B978212B8008570033459F /* MainScreenWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79B9781B2B8008570033459F /* MainScreenWorker.swift */; };
 		79B978222B8008570033459F /* MainScreenRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79B9781C2B8008570033459F /* MainScreenRouter.swift */; };
-		79B978232B8008570033459F /* MainScreenModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79B9781D2B8008570033459F /* MainScreenModels.swift */; };
+		79B978232B8008570033459F /* MainScreenDataFlow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79B9781D2B8008570033459F /* MainScreenDataFlow.swift */; };
 		79B978242B8008570033459F /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79B9781E2B8008570033459F /* MainViewController.swift */; };
 		79B978252B8008570033459F /* MainScreenInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79B9781F2B8008570033459F /* MainScreenInteractor.swift */; };
 		79B978292B8143EA0033459F /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79B978282B8143EA0033459F /* API.swift */; };
 		79B9782B2B81464B0033459F /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79B9782A2B81464B0033459F /* Network.swift */; };
 		79B9782D2B8199020033459F /* MainScreenCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79B9782C2B8199020033459F /* MainScreenCell.swift */; };
+		79CB861F2B8404F600F5C08A /* loading-circle-animation.json in Resources */ = {isa = PBXBuildFile; fileRef = 79CB861E2B8404F600F5C08A /* loading-circle-animation.json */; };
+		E5D94BE84A0360960AE85F8C /* Pods_PokeApi_Innowise.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 11844F34E657B2822CF1A177 /* Pods_PokeApi_Innowise.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		11844F34E657B2822CF1A177 /* Pods_PokeApi_Innowise.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PokeApi_Innowise.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7964DC5A2B81FC6C003EBA3D /* UILabel + Extentions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel + Extentions.swift"; sourceTree = "<group>"; };
 		7964DC5D2B820487003EBA3D /* Poppins-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Medium.ttf"; sourceTree = "<group>"; };
 		7964DC5F2B82048F003EBA3D /* Poppins-ExtraBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-ExtraBold.ttf"; sourceTree = "<group>"; };
@@ -42,7 +44,6 @@
 		79B977E62B7FBBCD0033459F /* PokeApi Innowise.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "PokeApi Innowise.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		79B977E92B7FBBCD0033459F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		79B977EB2B7FBBCD0033459F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		79B977ED2B7FBBCD0033459F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		79B977F22B7FBBCF0033459F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		79B977F52B7FBBCF0033459F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		79B977F72B7FBBCF0033459F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -50,31 +51,43 @@
 		79B9780E2B8007F40033459F /* DetailsScreenPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsScreenPresenter.swift; sourceTree = "<group>"; };
 		79B9780F2B8007F40033459F /* DetailsScreenWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsScreenWorker.swift; sourceTree = "<group>"; };
 		79B978102B8007F40033459F /* DetailsScreenRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsScreenRouter.swift; sourceTree = "<group>"; };
-		79B978112B8007F40033459F /* DetailsScreenModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsScreenModels.swift; sourceTree = "<group>"; };
+		79B978112B8007F40033459F /* DetailsScreenDataFlow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsScreenDataFlow.swift; sourceTree = "<group>"; };
 		79B978122B8007F40033459F /* DetailsScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsScreenViewController.swift; sourceTree = "<group>"; };
 		79B978132B8007F40033459F /* DetailsScreenInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsScreenInteractor.swift; sourceTree = "<group>"; };
 		79B9781A2B8008570033459F /* MainScreenPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenPresenter.swift; sourceTree = "<group>"; };
 		79B9781B2B8008570033459F /* MainScreenWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenWorker.swift; sourceTree = "<group>"; };
 		79B9781C2B8008570033459F /* MainScreenRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenRouter.swift; sourceTree = "<group>"; };
-		79B9781D2B8008570033459F /* MainScreenModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenModels.swift; sourceTree = "<group>"; };
+		79B9781D2B8008570033459F /* MainScreenDataFlow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenDataFlow.swift; sourceTree = "<group>"; };
 		79B9781E2B8008570033459F /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		79B9781F2B8008570033459F /* MainScreenInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenInteractor.swift; sourceTree = "<group>"; };
 		79B978282B8143EA0033459F /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
 		79B9782A2B81464B0033459F /* Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
 		79B9782C2B8199020033459F /* MainScreenCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenCell.swift; sourceTree = "<group>"; };
+		79CB861E2B8404F600F5C08A /* loading-circle-animation.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "loading-circle-animation.json"; sourceTree = "<group>"; };
+		B777D847353DEAA6C5AA1A7F /* Pods-PokeApi Innowise.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PokeApi Innowise.release.xcconfig"; path = "Target Support Files/Pods-PokeApi Innowise/Pods-PokeApi Innowise.release.xcconfig"; sourceTree = "<group>"; };
+		C0B0EEB5B6F6271D8897430D /* Pods-PokeApi Innowise.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PokeApi Innowise.debug.xcconfig"; path = "Target Support Files/Pods-PokeApi Innowise/Pods-PokeApi Innowise.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		79B977E32B7FBBCD0033459F /* Frameworks */ = {
+		DC4AEAA496CB3A64F1E180D5 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E5D94BE84A0360960AE85F8C /* Pods_PokeApi_Innowise.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2C55C5107D1D485E94027968 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				11844F34E657B2822CF1A177 /* Pods_PokeApi_Innowise.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		7964DC5C2B820460003EBA3D /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
@@ -89,6 +102,8 @@
 			children = (
 				79B977E82B7FBBCD0033459F /* PokeApi Innowise */,
 				79B977E72B7FBBCD0033459F /* Products */,
+				8C4D71C63E2E615E3FF7D896 /* Pods */,
+				2C55C5107D1D485E94027968 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -103,11 +118,11 @@
 		79B977E82B7FBBCD0033459F /* PokeApi Innowise */ = {
 			isa = PBXGroup;
 			children = (
+				79CB861D2B8404F600F5C08A /* Lottie */,
 				79B978262B80CC720033459F /* Application */,
 				79B9780C2B8006F20033459F /* MainScreen */,
 				79B9780D2B8007090033459F /* DetailScreen */,
 				79B978272B8143CB0033459F /* Network */,
-				79B977ED2B7FBBCD0033459F /* ViewController.swift */,
 				79B977FF2B7FBDF30033459F /* Extentions */,
 				79B977F22B7FBBCF0033459F /* Assets.xcassets */,
 				79B977F42B7FBBCF0033459F /* LaunchScreen.storyboard */,
@@ -135,7 +150,7 @@
 				79B9781A2B8008570033459F /* MainScreenPresenter.swift */,
 				79B9781B2B8008570033459F /* MainScreenWorker.swift */,
 				79B9781C2B8008570033459F /* MainScreenRouter.swift */,
-				79B9781D2B8008570033459F /* MainScreenModels.swift */,
+				79B9781D2B8008570033459F /* MainScreenDataFlow.swift */,
 				79B9782C2B8199020033459F /* MainScreenCell.swift */,
 			);
 			path = MainScreen;
@@ -149,7 +164,7 @@
 				79B9780E2B8007F40033459F /* DetailsScreenPresenter.swift */,
 				79B9780F2B8007F40033459F /* DetailsScreenWorker.swift */,
 				79B978102B8007F40033459F /* DetailsScreenRouter.swift */,
-				79B978112B8007F40033459F /* DetailsScreenModels.swift */,
+				79B978112B8007F40033459F /* DetailsScreenDataFlow.swift */,
 			);
 			path = DetailScreen;
 			sourceTree = "<group>";
@@ -172,6 +187,24 @@
 			path = Network;
 			sourceTree = "<group>";
 		};
+		79CB861D2B8404F600F5C08A /* Lottie */ = {
+			isa = PBXGroup;
+			children = (
+				79CB861E2B8404F600F5C08A /* loading-circle-animation.json */,
+			);
+			path = Lottie;
+			sourceTree = "<group>";
+		};
+		8C4D71C63E2E615E3FF7D896 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				C0B0EEB5B6F6271D8897430D /* Pods-PokeApi Innowise.debug.xcconfig */,
+				B777D847353DEAA6C5AA1A7F /* Pods-PokeApi Innowise.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -179,9 +212,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 79B977FA2B7FBBCF0033459F /* Build configuration list for PBXNativeTarget "PokeApi Innowise" */;
 			buildPhases = (
+				2B2D73B2A87090E5E9208A29 /* [CP] Check Pods Manifest.lock */,
 				79B977E22B7FBBCD0033459F /* Sources */,
-				79B977E32B7FBBCD0033459F /* Frameworks */,
 				79B977E42B7FBBCD0033459F /* Resources */,
+				DC4AEAA496CB3A64F1E180D5 /* Frameworks */,
+				9CBD34685C2B8678376C6719 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -231,6 +266,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7964DC602B82048F003EBA3D /* Poppins-ExtraBold.ttf in Resources */,
+				79CB861F2B8404F600F5C08A /* loading-circle-animation.json in Resources */,
 				7964DC5E2B820487003EBA3D /* Poppins-Medium.ttf in Resources */,
 				79B977F62B7FBBCF0033459F /* LaunchScreen.storyboard in Resources */,
 				79B977F32B7FBBCF0033459F /* Assets.xcassets in Resources */,
@@ -238,6 +274,48 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		2B2D73B2A87090E5E9208A29 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-PokeApi Innowise-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9CBD34685C2B8678376C6719 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-PokeApi Innowise/Pods-PokeApi Innowise-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-PokeApi Innowise/Pods-PokeApi Innowise-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-PokeApi Innowise/Pods-PokeApi Innowise-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		79B977E22B7FBBCD0033459F /* Sources */ = {
@@ -247,17 +325,16 @@
 				79B9782D2B8199020033459F /* MainScreenCell.swift in Sources */,
 				79B978212B8008570033459F /* MainScreenWorker.swift in Sources */,
 				79B978162B8007F40033459F /* DetailsScreenRouter.swift in Sources */,
-				79B978232B8008570033459F /* MainScreenModels.swift in Sources */,
+				79B978232B8008570033459F /* MainScreenDataFlow.swift in Sources */,
 				79B978152B8007F40033459F /* DetailsScreenWorker.swift in Sources */,
 				79B978202B8008570033459F /* MainScreenPresenter.swift in Sources */,
 				7964DC5B2B81FC6C003EBA3D /* UILabel + Extentions.swift in Sources */,
 				79B978252B8008570033459F /* MainScreenInteractor.swift in Sources */,
 				79B978242B8008570033459F /* MainViewController.swift in Sources */,
 				79B977FE2B7FBDEF0033459F /* UIView + Extensions.swift in Sources */,
-				79B977EE2B7FBBCD0033459F /* ViewController.swift in Sources */,
 				79B978142B8007F40033459F /* DetailsScreenPresenter.swift in Sources */,
 				79B978192B8007F40033459F /* DetailsScreenInteractor.swift in Sources */,
-				79B978172B8007F40033459F /* DetailsScreenModels.swift in Sources */,
+				79B978172B8007F40033459F /* DetailsScreenDataFlow.swift in Sources */,
 				79B977EA2B7FBBCD0033459F /* AppDelegate.swift in Sources */,
 				79B978182B8007F40033459F /* DetailsScreenViewController.swift in Sources */,
 				79B9782B2B81464B0033459F /* Network.swift in Sources */,
@@ -398,6 +475,7 @@
 		};
 		79B977FB2B7FBBCF0033459F /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C0B0EEB5B6F6271D8897430D /* Pods-PokeApi Innowise.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -428,6 +506,7 @@
 		};
 		79B977FC2B7FBBCF0033459F /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B777D847353DEAA6C5AA1A7F /* Pods-PokeApi Innowise.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;

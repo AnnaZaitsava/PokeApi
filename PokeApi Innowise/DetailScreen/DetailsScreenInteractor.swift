@@ -23,7 +23,7 @@ class DetailsScreenInteractor: DetailedBusinessLogic, DetailedDataStore {
     
     
     func fetchDetailedInformation() {
-        guard let pokemonURL = chosenPokemon?.url, let pokemonName = chosenPokemon?.name else {
+        guard let pokemonURL = chosenPokemon?.url else {
             return
         }
 
@@ -38,8 +38,8 @@ class DetailsScreenInteractor: DetailedBusinessLogic, DetailedDataStore {
                             DispatchQueue.main.async {
                                 if let image = loadedImage {
                                     if let pngImageData = image.pngData() {
-                                        let response = Details.displayDetailedInformation.Response(
-                                            name: pokemonName,
+                                        let response = DetailsScreenDataFlow.Info.Response(
+                                            name: pokemonDetailed.name,
                                             height: pokemonDetailed.height,
                                             weight: pokemonDetailed.weight,
                                             types: pokemonDetailed.types,

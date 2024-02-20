@@ -1,5 +1,5 @@
 //
-//  DetailsScreenModels.swift
+//  DetailsScreenDataFlow.swift
 //  PokeApi Innowise
 //
 //  Created by Anna Zaitsava on 17.02.24.
@@ -7,9 +7,8 @@
 import UIKit
 
 
-enum Details {
-    
-    enum displayDetailedInformation {
+enum DetailsScreenDataFlow {
+    enum Info {
         struct Response {
             let name: String
             let height: Int
