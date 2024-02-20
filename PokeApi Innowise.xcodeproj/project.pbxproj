@@ -109,6 +109,32 @@
 			path = DataBase;
 			sourceTree = "<group>";
 		};
+		7986EF8E2B84F25700AE9797 /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				7964DC5C2B820460003EBA3D /* Fonts */,
+				79B977F22B7FBBCF0033459F /* Assets.xcassets */,
+			);
+			path = Assets;
+			sourceTree = "<group>";
+		};
+		7986EF8F2B84F29C00AE9797 /* Base.lproj */ = {
+			isa = PBXGroup;
+			children = (
+				79B977F42B7FBBCF0033459F /* LaunchScreen.storyboard */,
+			);
+			path = Base.lproj;
+			sourceTree = "<group>";
+		};
+		7986EF902B84F2C400AE9797 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				7986EF8B2B84AB1500AE9797 /* DataBase */,
+				7986EF8F2B84F29C00AE9797 /* Base.lproj */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
 		79B977DD2B7FBBCD0033459F = {
 			isa = PBXGroup;
 			children = (
@@ -135,10 +161,9 @@
 				79B9780C2B8006F20033459F /* MainScreen */,
 				79B9780D2B8007090033459F /* DetailScreen */,
 				79B978272B8143CB0033459F /* Network */,
-				7986EF8B2B84AB1500AE9797 /* DataBase */,
+				7986EF902B84F2C400AE9797 /* Helpers */,
 				79B977FF2B7FBDF30033459F /* Extentions */,
-				79B977F22B7FBBCF0033459F /* Assets.xcassets */,
-				79B977F42B7FBBCF0033459F /* LaunchScreen.storyboard */,
+				7986EF8E2B84F25700AE9797 /* Assets */,
 				79B977F72B7FBBCF0033459F /* Info.plist */,
 			);
 			path = "PokeApi Innowise";
@@ -147,7 +172,6 @@
 		79B977FF2B7FBDF30033459F /* Extentions */ = {
 			isa = PBXGroup;
 			children = (
-				7964DC5C2B820460003EBA3D /* Fonts */,
 				79B977FD2B7FBDEF0033459F /* UIView + Extensions.swift */,
 				7964DC622B8206A0003EBA3D /* UIFonts + Extensions.swift */,
 				7964DC5A2B81FC6C003EBA3D /* UILabel + Extentions.swift */,

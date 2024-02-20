@@ -144,9 +144,9 @@ private extension DetailsScreenViewController {
             typeLabel.isHidden = false
             weightLabel.isHidden = false
             heightLabel.isHidden = false
-            typeBg.isHidden = true
-            weightBg.isHidden = true
-            heightBg.isHidden = true
+            typeBg.isHidden = false
+            weightBg.isHidden = false
+            heightBg.isHidden = false
             typeValue.isHidden = false
             weightValue.isHidden = false
             heightValue.isHidden = false
@@ -178,10 +178,10 @@ private extension DetailsScreenViewController {
             bgView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             bgView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             
-            pokemonImage.topAnchor.constraint(equalTo: bgView.topAnchor, constant: 170),
+            pokemonImage.topAnchor.constraint(equalTo: bgView.topAnchor, constant: 150),
             pokemonImage.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            pokemonImage.heightAnchor.constraint(equalToConstant: 220),
-            pokemonImage.widthAnchor.constraint(equalToConstant: 220),
+            pokemonImage.heightAnchor.constraint(equalToConstant: 250),
+            pokemonImage.widthAnchor.constraint(equalToConstant: 250),
             
             typeBg.topAnchor.constraint(equalTo: pokemonImage.bottomAnchor, constant: 70),
             typeBg.trailingAnchor.constraint(equalTo: view.trailingAnchor,constant: -offset),

@@ -9,8 +9,8 @@ import UIKit
 
 extension UIFont {
     
-    static func bold34() -> UIFont? {
-        return UIFont(name: "Poppins-ExtraBold", size: 34)
+    static func bold30() -> UIFont? {
+        return UIFont(name: "Poppins-ExtraBold", size: 30)
     }
     
     static func bold20() -> UIFont? {
