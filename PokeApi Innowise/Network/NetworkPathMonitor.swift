@@ -15,10 +15,14 @@ enum NetworkStatus {
 class NetworkPathMonitor {
     static let shared = NetworkPathMonitor()
     
-    private let monitor = NWPathMonitor()
+    private let monitor: NWPathMonitor
     private var networkStatus: NetworkStatus = .notConnected
     
     private init() {
+        monitor = NWPathMonitor()
+    }
+    
+    func startMonitoring() {
         monitor.pathUpdateHandler = { [weak self] path in
             self?.networkStatus = (path.status == .satisfied) ? .connected : .notConnected
         }

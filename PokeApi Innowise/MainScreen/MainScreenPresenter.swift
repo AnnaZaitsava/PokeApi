@@ -9,6 +9,7 @@ import UIKit
 
 protocol MainPresentationLogic {
     func presentFetchedPokemons(response: MainScreenDataFlow.Pokemons.Response)
+    func presentAlert(with title: String, and messsage: String)
 }
 
 class MainPresenter: MainPresentationLogic {
@@ -25,6 +26,10 @@ class MainPresenter: MainPresentationLogic {
         )
         
         viewController?.displayPokemonList(viewModel: viewModel)
+    }
+    
+    func presentAlert(with title: String, and messsage: String) {
+        viewController?.displayAlert(with: title, and: messsage)
     }
 }
 

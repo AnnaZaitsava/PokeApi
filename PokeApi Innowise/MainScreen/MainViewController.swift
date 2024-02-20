@@ -9,6 +9,7 @@ import UIKit
 
 protocol MainDisplayLogic: AnyObject {
     func displayPokemonList(viewModel: MainScreenDataFlow.Pokemons.ViewModel)
+    func displayAlert(with title: String, and message: String)
 }
 
 class MainViewController: UIViewController {
@@ -74,6 +75,14 @@ extension MainViewController: MainDisplayLogic {
         mainTableView.reloadData()
         mainTableView.refreshControl?.endRefreshing()
     }
+    
+    func displayAlert(with title: String, and message: String) {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        present(alert, animated: true) { [weak self] in
+            self?.mainTableView.refreshControl?.endRefreshing()
+        }
+    }
 }
 
 // MARK: - UITableViewDelegate
@@ -137,23 +146,15 @@ private extension MainViewController {
         if let navigationBar = navigationController?.navigationBar {
             navigationBar.titleTextAttributes = [
                 NSAttributedString.Key.foregroundColor: UIColor.black,
-                NSAttributedString.Key.font: UIFont.bold30() ?? .systemFont(ofSize: 30)
+                NSAttributedString.Key.font: UIFont.bold28() ?? .systemFont(ofSize: 30)
             ]
         }
-
-        // Создание изображения для кнопки "Назад"
         let backButtonImage = UIImage(systemName: "arrow.left")
-        
-        // Настройка цвета кнопки "Назад" на всех предыдущих экранах
+
         navigationController?.navigationBar.tintColor = .black
         navigationController?.navigationBar.layoutMargins = UIEdgeInsets(top: 20, left: 0, bottom: 20, right: 0)
-
-        // Установка изображения для кнопки "Назад" на всех предыдущих экранах
         navigationController?.navigationBar.backIndicatorImage = backButtonImage
         navigationController?.navigationBar.backIndicatorTransitionMaskImage = backButtonImage
-        
-
-        // Удаление текста с кнопки "Назад" на текущем экране
         navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
     }
 

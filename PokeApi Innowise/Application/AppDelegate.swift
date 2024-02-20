@@ -20,6 +20,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 } else {
                     print("Файл базы данных Realm не найден.")
                 }
+        NetworkPathMonitor.shared.startMonitoring()
         // Override point for customization after application launch.
         return true
     }
