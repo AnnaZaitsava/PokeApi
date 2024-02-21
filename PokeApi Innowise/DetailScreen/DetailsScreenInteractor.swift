@@ -28,10 +28,10 @@ class DetailsScreenInteractor: DetailedBusinessLogic, DetailedDataStore {
             fetchPokemonDetailsFromDatabase()
         }
     }
-    
+        
     private func fetchPokemonDetailsFromNetwork() {
         guard let pokemonURL = chosenPokemon?.url else {
-            presenter?.showAlertNoDataInDatabase()
+            presenter?.presentAlert(with: "Error", and: "Failed to fetch Pokemon details. Please check your internet connection and try again later.")
             return
         }
         
@@ -44,30 +44,24 @@ class DetailsScreenInteractor: DetailedBusinessLogic, DetailedDataStore {
                         self?.network.loadImage(from: imageURL) { loadedImage in
                             DispatchQueue.main.async {
                                 if let image = loadedImage {
-                                    if let pngImageData = image.pngData() {
-                                        let response = DetailsScreenDataFlow.Info.Response(
-                                            id: pokemonDetailed.id,
-                                            name: pokemonDetailed.name,
-                                            height: pokemonDetailed.height,
-                                            weight: pokemonDetailed.weight,
-                                            types: pokemonDetailed.types,
-                                            sprites: pngImageData
-                                        )
-                                        self?.realm.updatePokemonInRealmIfNeeded(response: response)
-                                        self?.presenter?.presentDetailedInformation(response: response)
-                                    } else {
-                                        print("Failed to convert image to PNG data")
-                                    }
+                                    let response = DetailsScreenDataFlow.Info.Response(
+                                        id: pokemonDetailed.id,
+                                        name: pokemonDetailed.name,
+                                        height: pokemonDetailed.height,
+                                        weight: pokemonDetailed.weight,
+                                        types: pokemonDetailed.types,
+                                        sprites: image
+                                    )
+                                    self?.realm.updatePokemonInRealmIfNeeded(response: response)
+                                    self?.presenter?.presentDetailedInformation(response: response)
                                 } else {
-                                    print("Failed to load image")
+                                    self?.presenter?.presentAlert(with: "Image Not Found", and: "Failed to load image data")
                                 }
                             }
                         }
                     } else {
-                        print("Image not found")
+                        self?.presenter?.presentAlert(with: "Error", and: "Image Not Found")
                     }
-                    
-                    print("Data received: \(pokemonDetailed)")
                     
                 case .failure(let error):
                     print("Error: \(error)")
@@ -78,70 +72,25 @@ class DetailsScreenInteractor: DetailedBusinessLogic, DetailedDataStore {
     }
     
     private func fetchPokemonDetailsFromDatabase() {
-        print("Fetching data from database...")
         let pokemonsFromDatabase = realm.getPokemonsFromRealm()
         if let pokemon = pokemonsFromDatabase.first(where: { $0.url == chosenPokemon?.url }) {
-            let response = DetailsScreenDataFlow.Info.Response(
-                id: pokemon.id,
-                name: pokemon.name,
-                height: pokemon.height,
-                weight: pokemon.weight,
-                types: pokemon.types.map { PokemonType(type: TypeInfo(name: $0)) },
-                sprites: pokemon.sprites
-            )
-            self.presenter?.presentDetailedInformation(response: response)
+            if let image = UIImage(data: pokemon.sprites) {
+                let response = DetailsScreenDataFlow.Info.Response(
+                    id: pokemon.id,
+                    name: pokemon.name,
+                    height: pokemon.height,
+                    weight: pokemon.weight,
+                    types: pokemon.types.map { PokemonType(type: TypeInfo(name: $0)) },
+                    sprites: image
+                )
+                self.presenter?.presentDetailedInformation(response: response)
+            } else {
+                self.presenter?.presentAlert(with: "Image Error", and: "Failed to load image from database")
+            }
         } else {
-            print("No data found in the database")
+            self.presenter?.presentAlert(with: "Pokemons Not Found", and: "Please connect to the network")
         }
     }
+
 }
 
-
-    
-//    func fetchDetailedInformation() {
-//        guard let pokemonURL = chosenPokemon?.url else {
-//            return
-//        }
-//
-//        let network = Network()
-//        network.fetchPokemonDetails(from: pokemonURL) { [weak self] result in
-//            DispatchQueue.main.async {
-//                switch result {
-//                case .success(let pokemonDetailed):
-//                    if let officialArtwork = pokemonDetailed.sprites.other.officialArtwork?.frontDefault,
-//                       let imageURL = URL(string: officialArtwork) {
-//                        network.loadImage(from: imageURL) { loadedImage in
-//                            DispatchQueue.main.async {
-//                                if let image = loadedImage {
-//                                    if let pngImageData = image.pngData() {
-//                                        let response = DetailsScreenDataFlow.Info.Response(
-//                                            id: pokemonDetailed.id,
-//                                            name: pokemonDetailed.name,
-//                                            height: pokemonDetailed.height,
-//                                            weight: pokemonDetailed.weight,
-//                                            types: pokemonDetailed.types,
-//                                            sprites: pngImageData
-//                                        )
-//                                        self?.realm.updatePokemonInRealmIfNeeded(response: DetailsScreenDataFlow.Info.Response(id: response.id, name: response.name, height: response.height, weight: response.weight, types: response.types, sprites: response.sprites))
-//                                        self?.presenter?.presentDetailedInformation(response: response)
-//                                    } else {
-//                                        print("Failed to convert image to PNG data")
-//                                    }
-//                                } else {
-//                                    print("Failed to load image")
-//                                }
-//                            }
-//                        }
-//                    } else {
-//                        print("Image not founded")
-//                    }
-//
-//                    print("Data received: \(pokemonDetailed)")
-//
-//                case .failure(let error):
-//                    print("Error: \(error)")
-//                }
-//            }
-//        }
-//    }
-//}

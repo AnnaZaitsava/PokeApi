@@ -15,7 +15,7 @@ enum DetailsScreenDataFlow {
             let height: Int
             let weight: Int
             let types: [PokemonType]
-            let sprites: Data
+            let sprites: UIImage
         }
         struct ViewModel {
             let name: String

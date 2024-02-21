@@ -9,6 +9,7 @@ import Lottie
 
 protocol DetailsDisplayLogic: AnyObject {
     func displayData(viewModel: DetailsScreenDataFlow.Info.ViewModel)
+    func displayAlert(with title: String, and message: String)
 }
 
 class DetailsScreenViewController: UIViewController {
@@ -98,6 +99,12 @@ extension DetailsScreenViewController: DetailsDisplayLogic {
         pokemonImage.image = viewModel.sprites
         self.navigationItem.title = viewModel.name
     }
+    
+    func displayAlert(with title: String, and message: String) {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        present(alert, animated: true)
+        }
 }
 
 private extension DetailsScreenViewController {

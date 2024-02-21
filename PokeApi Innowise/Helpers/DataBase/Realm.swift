@@ -9,13 +9,13 @@ import Foundation
 import RealmSwift
 
 class ItemPokemon: Object {
-    @Persisted var id: Int = 0
-    @Persisted var name: String = ""
-    @Persisted var url: String = ""
-    @Persisted var height: Int = 0
-    @Persisted var weight: Int = 0
+    @objc dynamic var id: Int = 0
+    @objc dynamic var name: String = ""
+    @objc dynamic var url: String = ""
+    @objc dynamic var height: Int = 0
+    @objc dynamic var weight: Int = 0
     let types = List<String>()
-    @Persisted var sprites: Data
+    @objc dynamic var sprites: Data = Data()
 }
 
 class RealmService {
@@ -41,7 +41,6 @@ class RealmService {
             completion(false)
         }
     }
-
     
     func updatePokemonInRealmIfNeeded(response: DetailsScreenDataFlow.Info.Response) {
         do {
@@ -51,10 +50,14 @@ class RealmService {
                     existingPokemon.height = response.height
                     existingPokemon.weight = response.weight
                     existingPokemon.types.removeAll()
+                    // Convert PokemonType objects to strings
                     for pokemonType in response.types {
                         existingPokemon.types.append(pokemonType.type.name)
                     }
-                    existingPokemon.sprites = response.sprites
+                    // Save image data if available
+                    if let imageData = response.sprites.pngData() {
+                        existingPokemon.sprites = imageData
+                    }
                 }
                 print("Pokemon with name \(response.name) has been updated in the database.")
             } else {
@@ -65,7 +68,6 @@ class RealmService {
         }
     }
 
-    
     func getPokemonsFromRealm() -> [ItemPokemon] {
         let pokemons = realm.objects(ItemPokemon.self)
         return Array(pokemons)

@@ -36,7 +36,7 @@ class MainInteractor: MainLogic, MainDataStore {
             fetchDataFromDatabase()
         }
     }
-    
+
     private func fetchDataFromNetwork() {
         let url = nextPageUrl ?? "https://pokeapi.co/api/v2/pokemon"
         network.fetchPokemonList(url: url) { [weak self] result in
@@ -62,26 +62,26 @@ class MainInteractor: MainLogic, MainDataStore {
                         self?.nextPageUrl = nextPageUrl
                     }
                     
-                case .failure(_):
-                    self?.presenter?.presentAlert(with: "Pokemons Not Found", and: "Please connect to the network")
+                case .failure(let failure):
+                    print(failure)
                 }
             }
         }
     }
     
     private func fetchDataFromDatabase() {
-        let savedPokemons = realm.getPokemonsFromRealm()
-        let pokemons = savedPokemons.map { pokemon -> Pokemon in
-            return Pokemon(url: pokemon.url, name: pokemon.name)
+            let savedPokemons = realm.getPokemonsFromRealm()
+            pokemons = savedPokemons.map { pokemon -> Pokemon in
+                return Pokemon(url: pokemon.url, name: pokemon.name)
+            }
+            
+            if !pokemons.isEmpty {
+                let response = MainScreenDataFlow.Pokemons.Response(next: "", pokemons: pokemons)
+                presenter?.presentFetchedPokemons(response: response)
+            } else {
+                presenter?.presentAlert(with: "Pokemons Not Found", and: "Please, pull to refresh data\nor check your internet connection")
+            }
         }
-        
-        if !pokemons.isEmpty {
-            let response = MainScreenDataFlow.Pokemons.Response(next: "", pokemons: pokemons)
-            presenter?.presentFetchedPokemons(response: response)
-        } else {
-            presenter?.presentAlert(with: "Pokemons Not Found", and: "Please, pull to refresh data\nor check your internet connection")
-        }
-    }
     
     
     func saveSelectedItem(pokemon: MainScreenDataFlow.Pokemons.ViewModel.PokemonList) {
@@ -89,4 +89,5 @@ class MainInteractor: MainLogic, MainDataStore {
     }
 }
 
-
+    
+    
