@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		791596852B859FCC00CAF819 /* PokeApi_InnowiseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 791596842B859FCC00CAF819 /* PokeApi_InnowiseTests.swift */; };
 		795D6A992B842FCE005C7CCA /* Realm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 795D6A982B842FCE005C7CCA /* Realm.swift */; };
 		7964DC5B2B81FC6C003EBA3D /* UILabel + Extentions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7964DC5A2B81FC6C003EBA3D /* UILabel + Extentions.swift */; };
 		7964DC5E2B820487003EBA3D /* Poppins-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7964DC5D2B820487003EBA3D /* Poppins-Medium.ttf */; };
@@ -37,8 +38,20 @@
 		E5D94BE84A0360960AE85F8C /* Pods_PokeApi_Innowise.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 11844F34E657B2822CF1A177 /* Pods_PokeApi_Innowise.framework */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		791596862B859FCC00CAF819 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 79B977DE2B7FBBCD0033459F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 79B977E52B7FBBCD0033459F;
+			remoteInfo = "PokeApi Innowise";
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
 		11844F34E657B2822CF1A177 /* Pods_PokeApi_Innowise.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PokeApi_Innowise.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		791596822B859FCC00CAF819 /* PokeApi InnowiseTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "PokeApi InnowiseTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		791596842B859FCC00CAF819 /* PokeApi_InnowiseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokeApi_InnowiseTests.swift; sourceTree = "<group>"; };
 		795D6A982B842FCE005C7CCA /* Realm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Realm.swift; sourceTree = "<group>"; };
 		7964DC5A2B81FC6C003EBA3D /* UILabel + Extentions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel + Extentions.swift"; sourceTree = "<group>"; };
 		7964DC5D2B820487003EBA3D /* Poppins-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Medium.ttf"; sourceTree = "<group>"; };
@@ -73,6 +86,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		7915967F2B859FCC00CAF819 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		DC4AEAA496CB3A64F1E180D5 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -90,6 +110,14 @@
 				11844F34E657B2822CF1A177 /* Pods_PokeApi_Innowise.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		791596832B859FCC00CAF819 /* PokeApi InnowiseTests */ = {
+			isa = PBXGroup;
+			children = (
+				791596842B859FCC00CAF819 /* PokeApi_InnowiseTests.swift */,
+			);
+			path = "PokeApi InnowiseTests";
 			sourceTree = "<group>";
 		};
 		7964DC5C2B820460003EBA3D /* Fonts */ = {
@@ -139,6 +167,7 @@
 			isa = PBXGroup;
 			children = (
 				79B977E82B7FBBCD0033459F /* PokeApi Innowise */,
+				791596832B859FCC00CAF819 /* PokeApi InnowiseTests */,
 				79B977E72B7FBBCD0033459F /* Products */,
 				8C4D71C63E2E615E3FF7D896 /* Pods */,
 				2C55C5107D1D485E94027968 /* Frameworks */,
@@ -149,6 +178,7 @@
 			isa = PBXGroup;
 			children = (
 				79B977E62B7FBBCD0033459F /* PokeApi Innowise.app */,
+				791596822B859FCC00CAF819 /* PokeApi InnowiseTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -245,6 +275,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		791596812B859FCC00CAF819 /* PokeApi InnowiseTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7915968A2B859FCC00CAF819 /* Build configuration list for PBXNativeTarget "PokeApi InnowiseTests" */;
+			buildPhases = (
+				7915967E2B859FCC00CAF819 /* Sources */,
+				7915967F2B859FCC00CAF819 /* Frameworks */,
+				791596802B859FCC00CAF819 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				791596872B859FCC00CAF819 /* PBXTargetDependency */,
+			);
+			name = "PokeApi InnowiseTests";
+			productName = "PokeApi InnowiseTests";
+			productReference = 791596822B859FCC00CAF819 /* PokeApi InnowiseTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		79B977E52B7FBBCD0033459F /* PokeApi Innowise */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 79B977FA2B7FBBCF0033459F /* Build configuration list for PBXNativeTarget "PokeApi Innowise" */;
@@ -274,6 +322,10 @@
 				LastSwiftUpdateCheck = 1430;
 				LastUpgradeCheck = 1430;
 				TargetAttributes = {
+					791596812B859FCC00CAF819 = {
+						CreatedOnToolsVersion = 14.3.1;
+						TestTargetID = 79B977E52B7FBBCD0033459F;
+					};
 					79B977E52B7FBBCD0033459F = {
 						CreatedOnToolsVersion = 14.3.1;
 					};
@@ -293,11 +345,19 @@
 			projectRoot = "";
 			targets = (
 				79B977E52B7FBBCD0033459F /* PokeApi Innowise */,
+				791596812B859FCC00CAF819 /* PokeApi InnowiseTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		791596802B859FCC00CAF819 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		79B977E42B7FBBCD0033459F /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -355,6 +415,14 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		7915967E2B859FCC00CAF819 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				791596852B859FCC00CAF819 /* PokeApi_InnowiseTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		79B977E22B7FBBCD0033459F /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -386,6 +454,14 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		791596872B859FCC00CAF819 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 79B977E52B7FBBCD0033459F /* PokeApi Innowise */;
+			targetProxy = 791596862B859FCC00CAF819 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin PBXVariantGroup section */
 		79B977F42B7FBBCF0033459F /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
@@ -398,6 +474,44 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		791596882B859FCC00CAF819 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 7G57MQDTNS;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "pokeapi.PokeApi-InnowiseTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PokeApi Innowise.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/PokeApi Innowise";
+			};
+			name = Debug;
+		};
+		791596892B859FCC00CAF819 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 7G57MQDTNS;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "pokeapi.PokeApi-InnowiseTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PokeApi Innowise.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/PokeApi Innowise";
+			};
+			name = Release;
+		};
 		79B977F82B7FBBCF0033459F /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -579,6 +693,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		7915968A2B859FCC00CAF819 /* Build configuration list for PBXNativeTarget "PokeApi InnowiseTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				791596882B859FCC00CAF819 /* Debug */,
+				791596892B859FCC00CAF819 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		79B977E12B7FBBCD0033459F /* Build configuration list for PBXProject "PokeApi Innowise" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
