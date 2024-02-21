@@ -11,33 +11,6 @@ protocol DetailedPresentationLogic {
     func presentAlert(with title: String, and messsage: String)
 }
 
-//class DetailsScreenPresenter: DetailedPresentationLogic {
-//    weak var viewController: DetailsDisplayLogic?
-//
-//    func presentDetailedInformation(response: DetailsScreenDataFlow.Info.Response) {
-//        let height = "\(response.height * 10) cm"
-//        let weight = "\(response.weight / 10) kg"
-//        let typesString = response.types.map { $0.type.name }.joined(separator: ", ")
-//
-//        if let image = UIImage(data: response.sprites) {
-//            let viewModel = DetailsScreenDataFlow.Info.ViewModel(
-//                name: response.name,
-//                height: height,
-//                weight: weight,
-//                types: typesString,
-//                sprites: image
-//            )
-//            viewController?.displayData(viewModel: viewModel)
-//        } else {
-//            print("Failed to convert image")
-//        }
-//    }
-//
-//    func presentAlert(with title: String, and messsage: String) {
-//        viewController?.displayAlert(with: title, and: messsage)
-//    }
-//}
-
 class DetailsScreenPresenter: DetailedPresentationLogic {
     weak var viewController: DetailsDisplayLogic?
     
@@ -47,7 +20,7 @@ class DetailsScreenPresenter: DetailedPresentationLogic {
         let typesString = response.types.map { $0.type.name }.joined(separator: ", ")
         
             let viewModel = DetailsScreenDataFlow.Info.ViewModel(
-                name: response.name,
+                name: response.name.capitalized,
                 height: height,
                 weight: weight,
                 types: typesString,

@@ -36,7 +36,7 @@ class MainInteractor: MainLogic, MainDataStore {
             fetchDataFromDatabase()
         }
     }
-
+        
     private func fetchDataFromNetwork() {
         let url = nextPageUrl ?? "https://pokeapi.co/api/v2/pokemon"
         network.fetchPokemonList(url: url) { [weak self] result in
@@ -62,14 +62,14 @@ class MainInteractor: MainLogic, MainDataStore {
                         self?.nextPageUrl = nextPageUrl
                     }
                     
-                case .failure(let failure):
-                    print(failure)
+                case .failure(_):
+                    self?.presenter?.presentAlert(with: "Pokemons Not Found", and: "Please connect to the network")
                 }
             }
         }
     }
-    
-    private func fetchDataFromDatabase() {
+        
+        private func fetchDataFromDatabase() {
             let savedPokemons = realm.getPokemonsFromRealm()
             pokemons = savedPokemons.map { pokemon -> Pokemon in
                 return Pokemon(url: pokemon.url, name: pokemon.name)
@@ -82,12 +82,12 @@ class MainInteractor: MainLogic, MainDataStore {
                 presenter?.presentAlert(with: "Pokemons Not Found", and: "Please, pull to refresh data\nor check your internet connection")
             }
         }
-    
-    
-    func saveSelectedItem(pokemon: MainScreenDataFlow.Pokemons.ViewModel.PokemonList) {
-        chosenPokemon = pokemons.first { $0.url == pokemon.url }
+        
+        
+        func saveSelectedItem(pokemon: MainScreenDataFlow.Pokemons.ViewModel.PokemonList) {
+            chosenPokemon = pokemons.first { $0.url == pokemon.url }
+        }
     }
-}
-
+    
     
     

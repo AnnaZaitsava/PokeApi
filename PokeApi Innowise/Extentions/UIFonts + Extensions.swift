@@ -13,6 +13,10 @@ extension UIFont {
         return UIFont(name: "Poppins-ExtraBold", size: 28)
     }
     
+    static func bold32() -> UIFont? {
+        return UIFont(name: "Poppins-ExtraBold", size: 32)
+    }
+    
     static func bold20() -> UIFont? {
         return UIFont(name: "Poppins-ExtraBold", size: 20)
     }

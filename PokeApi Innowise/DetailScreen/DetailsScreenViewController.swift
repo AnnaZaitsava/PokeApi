@@ -37,6 +37,7 @@ class DetailsScreenViewController: UIViewController {
         return view
     }()
     
+    private var nameLabel = UILabel(text: "Name", font: .bold32(), textColor: .black)
     private var typeLabel = UILabel(text: "Type", textColor: .black)
     private var weightLabel = UILabel(text: "Weight", textColor: .black)
     private var heightLabel = UILabel(text: "Height", textColor: .black)
@@ -82,6 +83,7 @@ class DetailsScreenViewController: UIViewController {
         addSubviews()
         makeConstraints()
         showDetailedCharacterInformation()
+        self.navigationItem.title = ""
     }
     
     func showDetailedCharacterInformation() {
@@ -93,11 +95,11 @@ class DetailsScreenViewController: UIViewController {
 extension DetailsScreenViewController: DetailsDisplayLogic {
     func displayData(viewModel: DetailsScreenDataFlow.Info.ViewModel) {
         isLoading = false
+        nameLabel.text = viewModel.name
         typeValue.text = viewModel.types
         weightValue.text = viewModel.weight
         heightValue.text = viewModel.height
         pokemonImage.image = viewModel.sprites
-        self.navigationItem.title = viewModel.name
     }
     
     func displayAlert(with title: String, and message: String) {
@@ -137,6 +139,7 @@ private extension DetailsScreenViewController {
     func updateView(_ isLoading: Bool) {
         if isLoading {
             pokemonImage.isHidden = true
+            nameLabel.isHidden = true
             typeLabel.isHidden = true
             weightLabel.isHidden = true
             heightLabel.isHidden = true
@@ -148,6 +151,7 @@ private extension DetailsScreenViewController {
             heightValue.isHidden = true
         } else {
             pokemonImage.isHidden = false
+            nameLabel.isHidden = false
             typeLabel.isHidden = false
             weightLabel.isHidden = false
             heightLabel.isHidden = false
@@ -164,6 +168,7 @@ private extension DetailsScreenViewController {
         view.addSubviews(
             bgView,
             pokemonImage,
+            nameLabel,
             typeLabel,
             weightLabel,
             heightLabel,
@@ -185,12 +190,15 @@ private extension DetailsScreenViewController {
             bgView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             bgView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             
-            pokemonImage.topAnchor.constraint(equalTo: bgView.topAnchor, constant: 150),
+            pokemonImage.topAnchor.constraint(equalTo: bgView.topAnchor, constant: 130),
             pokemonImage.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             pokemonImage.heightAnchor.constraint(equalToConstant: 250),
             pokemonImage.widthAnchor.constraint(equalToConstant: 250),
             
-            typeBg.topAnchor.constraint(equalTo: pokemonImage.bottomAnchor, constant: 70),
+            nameLabel.topAnchor.constraint(equalTo: pokemonImage.bottomAnchor, constant: 5),
+            nameLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            
+            typeBg.topAnchor.constraint(equalTo: nameLabel.bottomAnchor, constant: 70),
             typeBg.trailingAnchor.constraint(equalTo: view.trailingAnchor,constant: -offset),
             typeValue.centerYAnchor.constraint(equalTo: typeBg.centerYAnchor),
             typeValue.centerXAnchor.constraint(equalTo: typeBg.centerXAnchor),

@@ -21,7 +21,7 @@ class MainPresenter: MainPresentationLogic {
         
         let viewModel = MainScreenDataFlow.Pokemons.ViewModel(
             pokemonListViewModel: pokemonsArray.map { pokemon in
-                return MainScreenDataFlow.Pokemons.ViewModel.PokemonList(url: pokemon.url, name: pokemon.name)
+                return MainScreenDataFlow.Pokemons.ViewModel.PokemonList(url: pokemon.url, name: pokemon.name.capitalized)
             }
         )
         
