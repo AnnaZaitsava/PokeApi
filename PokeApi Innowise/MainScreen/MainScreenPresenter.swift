@@ -12,7 +12,7 @@ protocol MainPresentationLogic {
     func presentAlert(with title: String, and messsage: String)
 }
 
-class MainPresenter: MainPresentationLogic {
+final class MainPresenter: MainPresentationLogic {
     weak var viewController: MainDisplayLogic?
     
     func presentFetchedPokemons(response: MainScreenDataFlow.Pokemons.Response) {
@@ -21,7 +21,8 @@ class MainPresenter: MainPresentationLogic {
         
         let viewModel = MainScreenDataFlow.Pokemons.ViewModel(
             pokemonListViewModel: pokemonsArray.map { pokemon in
-                return MainScreenDataFlow.Pokemons.ViewModel.PokemonList(url: pokemon.url, name: pokemon.name.capitalized)
+                return MainScreenDataFlow.Pokemons.ViewModel.PokemonList(url: pokemon.url,
+                                                                         name: pokemon.name.capitalized)
             }
         )
         

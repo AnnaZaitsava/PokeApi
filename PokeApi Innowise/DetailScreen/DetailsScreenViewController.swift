@@ -12,7 +12,7 @@ protocol DetailsDisplayLogic: AnyObject {
     func displayAlert(with title: String, and message: String)
 }
 
-class DetailsScreenViewController: UIViewController {
+final class DetailsScreenViewController: UIViewController {
     
     // MARK: variables
     
@@ -25,17 +25,8 @@ class DetailsScreenViewController: UIViewController {
         }
     }
     
-    private lazy var  bgView: UIImageView = {
-        let view = UIImageView()
-        view.image = UIImage(named: "bg")
-        return view
-    }()
-    
-    private lazy var pokemonImage: UIImageView = {
-        let view = UIImageView()
-        view.backgroundColor = .clear
-        return view
-    }()
+    private var bgView = UIImageView(image: UIImage(named: "bg"))
+    private var pokemonImage = UIImageView()
     
     private var nameLabel = UILabel(text: "Name", font: .bold32(), textColor: .black)
     private var typeLabel = UILabel(text: "Type", textColor: .black)
@@ -126,42 +117,14 @@ private extension DetailsScreenViewController {
     }
     
     func handleLoading() {
-        if isLoading {
-            loaderView.isHidden = false
-            loaderView.play()
-        } else {
-            loaderView.isHidden = true
-            loaderView.stop()
-        }
+        loaderView.isHidden = isLoading ? false : true
+        isLoading ? loaderView.play() : loaderView.stop()
         updateView(isLoading)
     }
     
     func updateView(_ isLoading: Bool) {
-        if isLoading {
-            pokemonImage.isHidden = true
-            nameLabel.isHidden = true
-            typeLabel.isHidden = true
-            weightLabel.isHidden = true
-            heightLabel.isHidden = true
-            typeBg.isHidden = true
-            weightBg.isHidden = true
-            heightBg.isHidden = true
-            typeValue.isHidden = true
-            weightValue.isHidden = true
-            heightValue.isHidden = true
-        } else {
-            pokemonImage.isHidden = false
-            nameLabel.isHidden = false
-            typeLabel.isHidden = false
-            weightLabel.isHidden = false
-            heightLabel.isHidden = false
-            typeBg.isHidden = false
-            weightBg.isHidden = false
-            heightBg.isHidden = false
-            typeValue.isHidden = false
-            weightValue.isHidden = false
-            heightValue.isHidden = false
-        }
+        [pokemonImage, nameLabel, typeLabel, weightLabel, heightLabel,
+         typeBg, weightBg, heightBg, typeValue, weightValue, heightValue].forEach { $0.isHidden = isLoading }
     }
     
     func addSubviews() {
@@ -183,41 +146,51 @@ private extension DetailsScreenViewController {
     }
     
     func makeConstraints() {
-        let offset: CGFloat = 50
         
         NSLayoutConstraint.activate([
             bgView.topAnchor.constraint(equalTo: view.topAnchor),
             bgView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             bgView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             
-            pokemonImage.topAnchor.constraint(equalTo: bgView.topAnchor, constant: 130),
+            pokemonImage.topAnchor.constraint(equalTo: bgView.topAnchor,
+                                              constant: Constants.pokemonImageTopMargin),
             pokemonImage.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            pokemonImage.heightAnchor.constraint(equalToConstant: 250),
-            pokemonImage.widthAnchor.constraint(equalToConstant: 250),
+            pokemonImage.heightAnchor.constraint(equalToConstant: Constants.pokemonImageSize),
+            pokemonImage.widthAnchor.constraint(equalToConstant: Constants.pokemonImageSize),
             
-            nameLabel.topAnchor.constraint(equalTo: pokemonImage.bottomAnchor, constant: 5),
+            nameLabel.topAnchor.constraint(equalTo: pokemonImage.bottomAnchor,
+                                           constant: Constants.nameLabelTopMargin),
             nameLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             
-            typeBg.topAnchor.constraint(equalTo: nameLabel.bottomAnchor, constant: 70),
-            typeBg.trailingAnchor.constraint(equalTo: view.trailingAnchor,constant: -offset),
+            typeBg.topAnchor.constraint(equalTo: nameLabel.bottomAnchor,
+                                        constant: Constants.infoLabelsTopMargin),
+            typeBg.trailingAnchor.constraint(equalTo: view.trailingAnchor,
+                                             constant: -Constants.sideMargin),
             typeValue.centerYAnchor.constraint(equalTo: typeBg.centerYAnchor),
             typeValue.centerXAnchor.constraint(equalTo: typeBg.centerXAnchor),
             typeLabel.centerYAnchor.constraint(equalTo: typeBg.centerYAnchor),
-            typeLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: offset),
+            typeLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor,
+                                               constant: Constants.sideMargin),
             
-            weightBg.topAnchor.constraint(equalTo: typeBg.bottomAnchor, constant: 40),
-            weightBg.trailingAnchor.constraint(equalTo: view.trailingAnchor,constant: -offset),
+            weightBg.topAnchor.constraint(equalTo: typeBg.bottomAnchor,
+                                          constant: Constants.spacingBetweenInfoLabels),
+            weightBg.trailingAnchor.constraint(equalTo: view.trailingAnchor,
+                                               constant: -Constants.sideMargin),
             weightValue.centerYAnchor.constraint(equalTo: weightBg.centerYAnchor),
             weightValue.centerXAnchor.constraint(equalTo: weightBg.centerXAnchor),
             weightLabel.centerYAnchor.constraint(equalTo: weightBg.centerYAnchor),
-            weightLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: offset),
+            weightLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor,
+                                                 constant: Constants.sideMargin),
             
-            heightBg.topAnchor.constraint(equalTo: weightBg.bottomAnchor, constant: 40),
-            heightBg.trailingAnchor.constraint(equalTo: view.trailingAnchor,constant: -offset),
+            heightBg.topAnchor.constraint(equalTo: weightBg.bottomAnchor,
+                                          constant: Constants.spacingBetweenInfoLabels),
+            heightBg.trailingAnchor.constraint(equalTo: view.trailingAnchor,
+                                               constant: -Constants.sideMargin),
             heightValue.centerYAnchor.constraint(equalTo: heightBg.centerYAnchor),
             heightValue.centerXAnchor.constraint(equalTo: heightBg.centerXAnchor),
             heightLabel.centerYAnchor.constraint(equalTo: heightBg.centerYAnchor),
-            heightLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: offset),
+            heightLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor,
+                                                 constant: Constants.sideMargin),
             
             loaderView.centerYAnchor.constraint(equalTo: view.centerYAnchor),
             loaderView.centerXAnchor.constraint(equalTo: view.centerXAnchor)

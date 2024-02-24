@@ -14,11 +14,10 @@ protocol DetailedDataStore {
     var chosenPokemon: Pokemon? { get set }
 }
 
-class DetailsScreenInteractor: DetailedBusinessLogic, DetailedDataStore {
+final class DetailsScreenInteractor: DetailedBusinessLogic, DetailedDataStore {
     var chosenPokemon: Pokemon?
     let network = Network()
     var presenter: DetailedPresentationLogic?
-    var worker: DetailsScreenWorker?
     var realm = RealmService()
     
     func fetchDetailedInformation() {
@@ -91,6 +90,4 @@ class DetailsScreenInteractor: DetailedBusinessLogic, DetailedDataStore {
             self.presenter?.presentAlert(with: "Pokemons Not Found", and: "Please connect to the network")
         }
     }
-
 }
-

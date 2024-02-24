@@ -11,7 +11,7 @@ protocol DetailedPresentationLogic {
     func presentAlert(with title: String, and messsage: String)
 }
 
-class DetailsScreenPresenter: DetailedPresentationLogic {
+final class DetailsScreenPresenter: DetailedPresentationLogic {
     weak var viewController: DetailsDisplayLogic?
     
     func presentDetailedInformation(response: DetailsScreenDataFlow.Info.Response) {
@@ -33,6 +33,3 @@ class DetailsScreenPresenter: DetailedPresentationLogic {
         viewController?.displayAlert(with: title, and: messsage)
     }
 }
-
-
-

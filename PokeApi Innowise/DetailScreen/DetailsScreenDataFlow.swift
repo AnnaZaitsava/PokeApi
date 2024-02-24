@@ -6,7 +6,6 @@
 
 import UIKit
 
-
 enum DetailsScreenDataFlow {
     enum Info {
         struct Response {

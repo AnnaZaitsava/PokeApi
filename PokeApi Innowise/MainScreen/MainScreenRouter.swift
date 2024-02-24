@@ -15,7 +15,7 @@ protocol MainDataPassing {
     var dataStore: MainDataStore? { get }
 }
 
-class MainRouter: NSObject, MainRoutingLogic, MainDataPassing {
+final class MainRouter: NSObject, MainRoutingLogic, MainDataPassing {
     
     weak var viewController: MainViewController?
     var dataStore: MainDataStore?
@@ -27,9 +27,7 @@ class MainRouter: NSObject, MainRoutingLogic, MainDataPassing {
         
         var destinationDataSource = destinationViewController.router!.dataStore!
         passDataToSomewhere(source: dataStore!, destination: &destinationDataSource)
-        
-        navigateToDetails(source: viewController!, destination: destinationViewController)
-        
+        navigateToDetails(source: viewController!, destination: destinationViewController)        
     }
     
     // MARK: Navigation
