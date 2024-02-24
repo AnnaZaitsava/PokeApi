@@ -6,13 +6,12 @@
 
 import UIKit
 
-
 protocol MainDisplayLogic: AnyObject {
     func displayPokemonList(viewModel: MainScreenDataFlow.Pokemons.ViewModel)
     func displayAlert(with title: String, and message: String)
 }
 
-class MainViewController: UIViewController {
+final class MainViewController: UIViewController {
     
     // MARK: Variables
     
@@ -167,7 +166,7 @@ private extension MainViewController {
         let safeArea = view.safeAreaLayoutGuide
         
         NSLayoutConstraint.activate([
-            mainTableView.topAnchor.constraint(equalTo: safeArea.topAnchor, constant: 20),
+            mainTableView.topAnchor.constraint(equalTo: safeArea.topAnchor, constant: Constants.tableViewMargin),
             mainTableView.leadingAnchor.constraint(equalTo: safeArea.leadingAnchor),
             mainTableView.trailingAnchor.constraint(equalTo: safeArea.trailingAnchor),
             mainTableView.bottomAnchor.constraint(equalTo: safeArea.bottomAnchor)

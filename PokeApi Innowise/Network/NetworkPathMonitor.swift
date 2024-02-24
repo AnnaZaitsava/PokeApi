@@ -12,7 +12,7 @@ enum NetworkStatus {
     case notConnected
 }
 
-class NetworkPathMonitor {
+final class NetworkPathMonitor {
     static let shared = NetworkPathMonitor()
     
     private let monitor: NWPathMonitor

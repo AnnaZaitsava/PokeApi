@@ -4,7 +4,6 @@
 //
 //  Created by Anna Zaitsava on 17.02.24.
 
-
 import Foundation
 
 protocol MainLogic {
@@ -16,11 +15,9 @@ protocol MainDataStore {
     var chosenPokemon: Pokemon? { get set }
 }
 
-class MainInteractor: MainLogic, MainDataStore {
+final class MainInteractor: MainLogic, MainDataStore {
     
     var presenter: MainPresentationLogic?
-    var worker: MainScreenWorker?
-    
     var pokemons: [Pokemon] = []
     var chosenPokemon: Pokemon?
     private let network = Network()
@@ -45,7 +42,8 @@ class MainInteractor: MainLogic, MainDataStore {
                 case .success(let result):
                     let pokemons = result.results
                     self?.pokemons += pokemons
-                    let response = MainScreenDataFlow.Pokemons.Response(next: result.next ?? "", pokemons: self?.pokemons ?? [])
+                    let response = MainScreenDataFlow.Pokemons.Response(next: result.next ?? "",
+                                                                        pokemons: self?.pokemons ?? [])
                     
                     for pokemon in pokemons {
                         self?.realm.savePokemonToRealm(url: pokemon.url, name: pokemon.name) { success in
@@ -74,20 +72,17 @@ class MainInteractor: MainLogic, MainDataStore {
             pokemons = savedPokemons.map { pokemon -> Pokemon in
                 return Pokemon(url: pokemon.url, name: pokemon.name)
             }
-            
+        
             if !pokemons.isEmpty {
                 let response = MainScreenDataFlow.Pokemons.Response(next: "", pokemons: pokemons)
                 presenter?.presentFetchedPokemons(response: response)
             } else {
-                presenter?.presentAlert(with: "Pokemons Not Found", and: "Please, pull to refresh data\nor check your internet connection")
+                presenter?.presentAlert(with: "Pokemons Not Found",
+                                        and: "Please, pull to refresh data\nor check your internet connection")
             }
         }
-        
-        
+               
         func saveSelectedItem(pokemon: MainScreenDataFlow.Pokemons.ViewModel.PokemonList) {
             chosenPokemon = pokemons.first { $0.url == pokemon.url }
         }
     }
-    
-    
-    

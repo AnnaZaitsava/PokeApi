@@ -26,9 +26,8 @@ extension UIView {
         
         NSLayoutConstraint.activate([
             view.heightAnchor.constraint(equalToConstant: 40),
-            view.widthAnchor.constraint(equalToConstant: 154),
+            view.widthAnchor.constraint(equalToConstant: 154)
         ])
         return view
     }
 }
-

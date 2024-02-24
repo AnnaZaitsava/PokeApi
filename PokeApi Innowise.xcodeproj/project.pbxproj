@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		791596852B859FCC00CAF819 /* PokeApi_InnowiseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 791596842B859FCC00CAF819 /* PokeApi_InnowiseTests.swift */; };
+		7926CBDE2B8AAB9D0026F568 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7926CBDD2B8AAB9D0026F568 /* Constants.swift */; };
 		795D6A992B842FCE005C7CCA /* Realm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 795D6A982B842FCE005C7CCA /* Realm.swift */; };
 		7964DC5B2B81FC6C003EBA3D /* UILabel + Extentions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7964DC5A2B81FC6C003EBA3D /* UILabel + Extentions.swift */; };
 		7964DC5E2B820487003EBA3D /* Poppins-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7964DC5D2B820487003EBA3D /* Poppins-Medium.ttf */; };
@@ -20,13 +21,11 @@
 		79B977F62B7FBBCF0033459F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 79B977F42B7FBBCF0033459F /* LaunchScreen.storyboard */; };
 		79B977FE2B7FBDEF0033459F /* UIView + Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79B977FD2B7FBDEF0033459F /* UIView + Extensions.swift */; };
 		79B978142B8007F40033459F /* DetailsScreenPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79B9780E2B8007F40033459F /* DetailsScreenPresenter.swift */; };
-		79B978152B8007F40033459F /* DetailsScreenWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79B9780F2B8007F40033459F /* DetailsScreenWorker.swift */; };
 		79B978162B8007F40033459F /* DetailsScreenRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79B978102B8007F40033459F /* DetailsScreenRouter.swift */; };
 		79B978172B8007F40033459F /* DetailsScreenDataFlow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79B978112B8007F40033459F /* DetailsScreenDataFlow.swift */; };
 		79B978182B8007F40033459F /* DetailsScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79B978122B8007F40033459F /* DetailsScreenViewController.swift */; };
 		79B978192B8007F40033459F /* DetailsScreenInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79B978132B8007F40033459F /* DetailsScreenInteractor.swift */; };
 		79B978202B8008570033459F /* MainScreenPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79B9781A2B8008570033459F /* MainScreenPresenter.swift */; };
-		79B978212B8008570033459F /* MainScreenWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79B9781B2B8008570033459F /* MainScreenWorker.swift */; };
 		79B978222B8008570033459F /* MainScreenRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79B9781C2B8008570033459F /* MainScreenRouter.swift */; };
 		79B978232B8008570033459F /* MainScreenDataFlow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79B9781D2B8008570033459F /* MainScreenDataFlow.swift */; };
 		79B978242B8008570033459F /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79B9781E2B8008570033459F /* MainViewController.swift */; };
@@ -52,6 +51,7 @@
 		11844F34E657B2822CF1A177 /* Pods_PokeApi_Innowise.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PokeApi_Innowise.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		791596822B859FCC00CAF819 /* PokeApi InnowiseTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "PokeApi InnowiseTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		791596842B859FCC00CAF819 /* PokeApi_InnowiseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokeApi_InnowiseTests.swift; sourceTree = "<group>"; };
+		7926CBDD2B8AAB9D0026F568 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		795D6A982B842FCE005C7CCA /* Realm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Realm.swift; sourceTree = "<group>"; };
 		7964DC5A2B81FC6C003EBA3D /* UILabel + Extentions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel + Extentions.swift"; sourceTree = "<group>"; };
 		7964DC5D2B820487003EBA3D /* Poppins-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Medium.ttf"; sourceTree = "<group>"; };
@@ -66,13 +66,11 @@
 		79B977F72B7FBBCF0033459F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		79B977FD2B7FBDEF0033459F /* UIView + Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView + Extensions.swift"; sourceTree = "<group>"; };
 		79B9780E2B8007F40033459F /* DetailsScreenPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsScreenPresenter.swift; sourceTree = "<group>"; };
-		79B9780F2B8007F40033459F /* DetailsScreenWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsScreenWorker.swift; sourceTree = "<group>"; };
 		79B978102B8007F40033459F /* DetailsScreenRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsScreenRouter.swift; sourceTree = "<group>"; };
 		79B978112B8007F40033459F /* DetailsScreenDataFlow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsScreenDataFlow.swift; sourceTree = "<group>"; };
 		79B978122B8007F40033459F /* DetailsScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsScreenViewController.swift; sourceTree = "<group>"; };
 		79B978132B8007F40033459F /* DetailsScreenInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsScreenInteractor.swift; sourceTree = "<group>"; };
 		79B9781A2B8008570033459F /* MainScreenPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenPresenter.swift; sourceTree = "<group>"; };
-		79B9781B2B8008570033459F /* MainScreenWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenWorker.swift; sourceTree = "<group>"; };
 		79B9781C2B8008570033459F /* MainScreenRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenRouter.swift; sourceTree = "<group>"; };
 		79B9781D2B8008570033459F /* MainScreenDataFlow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenDataFlow.swift; sourceTree = "<group>"; };
 		79B9781E2B8008570033459F /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
@@ -120,6 +118,14 @@
 			path = "PokeApi InnowiseTests";
 			sourceTree = "<group>";
 		};
+		7926CBDF2B8AB3B90026F568 /* Constans */ = {
+			isa = PBXGroup;
+			children = (
+				7926CBDD2B8AAB9D0026F568 /* Constants.swift */,
+			);
+			path = Constans;
+			sourceTree = "<group>";
+		};
 		7964DC5C2B820460003EBA3D /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
@@ -158,6 +164,7 @@
 			isa = PBXGroup;
 			children = (
 				7986EF8B2B84AB1500AE9797 /* DataBase */,
+				7926CBDF2B8AB3B90026F568 /* Constans */,
 				7986EF8F2B84F29C00AE9797 /* Base.lproj */,
 			);
 			path = Helpers;
@@ -215,7 +222,6 @@
 				79B9781E2B8008570033459F /* MainViewController.swift */,
 				79B9781F2B8008570033459F /* MainScreenInteractor.swift */,
 				79B9781A2B8008570033459F /* MainScreenPresenter.swift */,
-				79B9781B2B8008570033459F /* MainScreenWorker.swift */,
 				79B9781C2B8008570033459F /* MainScreenRouter.swift */,
 				79B9781D2B8008570033459F /* MainScreenDataFlow.swift */,
 				79B9782C2B8199020033459F /* MainScreenCell.swift */,
@@ -229,7 +235,6 @@
 				79B978122B8007F40033459F /* DetailsScreenViewController.swift */,
 				79B978132B8007F40033459F /* DetailsScreenInteractor.swift */,
 				79B9780E2B8007F40033459F /* DetailsScreenPresenter.swift */,
-				79B9780F2B8007F40033459F /* DetailsScreenWorker.swift */,
 				79B978102B8007F40033459F /* DetailsScreenRouter.swift */,
 				79B978112B8007F40033459F /* DetailsScreenDataFlow.swift */,
 			);
@@ -428,11 +433,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				79B9782D2B8199020033459F /* MainScreenCell.swift in Sources */,
-				79B978212B8008570033459F /* MainScreenWorker.swift in Sources */,
 				7986EF8D2B84E18700AE9797 /* NetworkPathMonitor.swift in Sources */,
 				79B978162B8007F40033459F /* DetailsScreenRouter.swift in Sources */,
 				79B978232B8008570033459F /* MainScreenDataFlow.swift in Sources */,
-				79B978152B8007F40033459F /* DetailsScreenWorker.swift in Sources */,
 				79B978202B8008570033459F /* MainScreenPresenter.swift in Sources */,
 				7964DC5B2B81FC6C003EBA3D /* UILabel + Extentions.swift in Sources */,
 				79B978252B8008570033459F /* MainScreenInteractor.swift in Sources */,
@@ -440,6 +443,7 @@
 				79B977FE2B7FBDEF0033459F /* UIView + Extensions.swift in Sources */,
 				79B978142B8007F40033459F /* DetailsScreenPresenter.swift in Sources */,
 				79B978192B8007F40033459F /* DetailsScreenInteractor.swift in Sources */,
+				7926CBDE2B8AAB9D0026F568 /* Constants.swift in Sources */,
 				79B978172B8007F40033459F /* DetailsScreenDataFlow.swift in Sources */,
 				79B977EA2B7FBBCD0033459F /* AppDelegate.swift in Sources */,
 				79B978182B8007F40033459F /* DetailsScreenViewController.swift in Sources */,
@@ -568,6 +572,7 @@
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
