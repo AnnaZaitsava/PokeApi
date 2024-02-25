@@ -42,7 +42,6 @@ final class MainRouter: NSObject, MainRoutingLogic, MainDataPassing {
         source: MainDataStore,
         destination: inout DetailedDataStore) {
             destination.chosenPokemon = source.chosenPokemon
-            print("\(String(describing: source.chosenPokemon?.url))")
         }
     
 }

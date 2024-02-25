@@ -47,11 +47,6 @@ final class MainInteractor: MainLogic, MainDataStore {
                     
                     for pokemon in pokemons {
                         self?.realm.savePokemonToRealm(url: pokemon.url, name: pokemon.name) { success in
-                            if success {
-                                print("Pokemon saved successfully.")
-                            } else {
-                                print("Failed to save Pokemon.")
-                            }
                         }
                     }
                     self?.presenter?.presentFetchedPokemons(response: response)
