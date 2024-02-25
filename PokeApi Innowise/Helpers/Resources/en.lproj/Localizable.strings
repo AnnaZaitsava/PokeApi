@@ -1,0 +1,12 @@
+/* 
+  Localizable.strings
+  PokeApi Innowise
+
+  Created by Anna Zaitsava on 25.02.24.
+  
+*/
+
+"Name" = "Name";
+"Type" = "Type";
+"Weight" = "Weight";
+"Height" = "Height";

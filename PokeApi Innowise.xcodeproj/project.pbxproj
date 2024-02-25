@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		791596852B859FCC00CAF819 /* PokeApi_InnowiseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 791596842B859FCC00CAF819 /* PokeApi_InnowiseTests.swift */; };
 		7926CBDE2B8AAB9D0026F568 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7926CBDD2B8AAB9D0026F568 /* Constants.swift */; };
+		7926CBE32B8AD2090026F568 /* LocalizableStrings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7926CBE22B8AD2090026F568 /* LocalizableStrings.swift */; };
+		7926CBE62B8AD34D0026F568 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 7926CBE82B8AD34D0026F568 /* Localizable.strings */; };
 		795D6A992B842FCE005C7CCA /* Realm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 795D6A982B842FCE005C7CCA /* Realm.swift */; };
 		7964DC5B2B81FC6C003EBA3D /* UILabel + Extentions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7964DC5A2B81FC6C003EBA3D /* UILabel + Extentions.swift */; };
 		7964DC5E2B820487003EBA3D /* Poppins-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7964DC5D2B820487003EBA3D /* Poppins-Medium.ttf */; };
@@ -52,6 +54,8 @@
 		791596822B859FCC00CAF819 /* PokeApi InnowiseTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "PokeApi InnowiseTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		791596842B859FCC00CAF819 /* PokeApi_InnowiseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokeApi_InnowiseTests.swift; sourceTree = "<group>"; };
 		7926CBDD2B8AAB9D0026F568 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		7926CBE22B8AD2090026F568 /* LocalizableStrings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalizableStrings.swift; sourceTree = "<group>"; };
+		7926CBE72B8AD34D0026F568 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		795D6A982B842FCE005C7CCA /* Realm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Realm.swift; sourceTree = "<group>"; };
 		7964DC5A2B81FC6C003EBA3D /* UILabel + Extentions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel + Extentions.swift"; sourceTree = "<group>"; };
 		7964DC5D2B820487003EBA3D /* Poppins-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Medium.ttf"; sourceTree = "<group>"; };
@@ -126,6 +130,16 @@
 			path = Constans;
 			sourceTree = "<group>";
 		};
+		7926CBE92B8AD5140026F568 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				7926CBE82B8AD34D0026F568 /* Localizable.strings */,
+				7926CBE22B8AD2090026F568 /* LocalizableStrings.swift */,
+				7926CBDF2B8AB3B90026F568 /* Constans */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
 		7964DC5C2B820460003EBA3D /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
@@ -164,7 +178,7 @@
 			isa = PBXGroup;
 			children = (
 				7986EF8B2B84AB1500AE9797 /* DataBase */,
-				7926CBDF2B8AB3B90026F568 /* Constans */,
+				7926CBE92B8AD5140026F568 /* Resources */,
 				7986EF8F2B84F29C00AE9797 /* Base.lproj */,
 			);
 			path = Helpers;
@@ -368,6 +382,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7964DC602B82048F003EBA3D /* Poppins-ExtraBold.ttf in Resources */,
+				7926CBE62B8AD34D0026F568 /* Localizable.strings in Resources */,
 				79CB861F2B8404F600F5C08A /* loading-circle-animation.json in Resources */,
 				7964DC5E2B820487003EBA3D /* Poppins-Medium.ttf in Resources */,
 				79B977F62B7FBBCF0033459F /* LaunchScreen.storyboard in Resources */,
@@ -437,6 +452,7 @@
 				79B978162B8007F40033459F /* DetailsScreenRouter.swift in Sources */,
 				79B978232B8008570033459F /* MainScreenDataFlow.swift in Sources */,
 				79B978202B8008570033459F /* MainScreenPresenter.swift in Sources */,
+				7926CBE32B8AD2090026F568 /* LocalizableStrings.swift in Sources */,
 				7964DC5B2B81FC6C003EBA3D /* UILabel + Extentions.swift in Sources */,
 				79B978252B8008570033459F /* MainScreenInteractor.swift in Sources */,
 				79B978242B8008570033459F /* MainViewController.swift in Sources */,
@@ -467,6 +483,14 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		7926CBE82B8AD34D0026F568 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				7926CBE72B8AD34D0026F568 /* en */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
 		79B977F42B7FBBCF0033459F /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
