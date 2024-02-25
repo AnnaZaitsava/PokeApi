@@ -149,14 +149,14 @@ private extension MainViewController {
             ]
         }
         let backButtonImage = UIImage(systemName: "arrow.left")
-
+        
         navigationController?.navigationBar.tintColor = .black
         navigationController?.navigationBar.layoutMargins = UIEdgeInsets(top: 20, left: 0, bottom: 20, right: 0)
         navigationController?.navigationBar.backIndicatorImage = backButtonImage
         navigationController?.navigationBar.backIndicatorTransitionMaskImage = backButtonImage
         navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
     }
-
+    
     
     func addSubviews() {
         view.addSubviews(mainTableView)

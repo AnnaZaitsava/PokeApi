@@ -19,14 +19,14 @@ final class DetailsScreenPresenter: DetailedPresentationLogic {
         let weight = "\(response.weight / 10) kg"
         let typesString = response.types.map { $0.type.name }.joined(separator: ", ")
         
-            let viewModel = DetailsScreenDataFlow.Info.ViewModel(
-                name: response.name.capitalized,
-                height: height,
-                weight: weight,
-                types: typesString,
-                sprites: response.sprites
-            )
-            viewController?.displayData(viewModel: viewModel)
+        let viewModel = DetailsScreenDataFlow.Info.ViewModel(
+            name: response.name.capitalized,
+            height: height,
+            weight: weight,
+            types: typesString,
+            sprites: response.sprites
+        )
+        viewController?.displayData(viewModel: viewModel)
     }
     
     func presentAlert(with title: String, and messsage: String) {

@@ -27,7 +27,7 @@ final class DetailsScreenInteractor: DetailedBusinessLogic, DetailedDataStore {
             fetchPokemonDetailsFromDatabase()
         }
     }
-        
+    
     private func fetchPokemonDetailsFromNetwork() {
         guard let pokemonURL = chosenPokemon?.url else {
             presenter?.presentAlert(with: "Error", and: "Failed to fetch Pokemon details. Please check your internet connection and try again later.")

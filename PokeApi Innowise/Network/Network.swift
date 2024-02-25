@@ -86,23 +86,23 @@ struct Network {
         
         task.resume()
     }
-
+    
     
     func loadImage(from url: URL, completion: @escaping (UIImage?) -> Void) {
-           URLSession.shared.dataTask(with: url) { data, response, error in
-               if let error = error {
-                   print("Error loading image: \(error)")
-                   completion(nil)
-                   return
-               }
-
-               if let data = data, let image = UIImage(data: data) {
-                   completion(image)
-               } else {
-                   print("Error creating image from data")
-                   completion(nil)
-               }
-           }.resume()
-       }
-
+        URLSession.shared.dataTask(with: url) { data, response, error in
+            if let error = error {
+                print("Error loading image: \(error)")
+                completion(nil)
+                return
+            }
+            
+            if let data = data, let image = UIImage(data: data) {
+                completion(image)
+            } else {
+                print("Error creating image from data")
+                completion(nil)
+            }
+        }.resume()
+    }
+    
 }

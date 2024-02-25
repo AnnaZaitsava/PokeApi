@@ -33,7 +33,7 @@ final class MainInteractor: MainLogic, MainDataStore {
             fetchDataFromDatabase()
         }
     }
-        
+    
     private func fetchDataFromNetwork() {
         let url = nextPageUrl ?? "https://pokeapi.co/api/v2/pokemon"
         network.fetchPokemonList(url: url) { [weak self] result in
@@ -66,23 +66,23 @@ final class MainInteractor: MainLogic, MainDataStore {
             }
         }
     }
-        
-        private func fetchDataFromDatabase() {
-            let savedPokemons = realm.getPokemonsFromRealm()
-            pokemons = savedPokemons.map { pokemon -> Pokemon in
-                return Pokemon(url: pokemon.url, name: pokemon.name)
-            }
-        
-            if !pokemons.isEmpty {
-                let response = MainScreenDataFlow.Pokemons.Response(next: "", pokemons: pokemons)
-                presenter?.presentFetchedPokemons(response: response)
-            } else {
-                presenter?.presentAlert(with: "Pokemons Not Found",
-                                        and: "Please, pull to refresh data\nor check your internet connection")
-            }
+    
+    private func fetchDataFromDatabase() {
+        let savedPokemons = realm.getPokemonsFromRealm()
+        pokemons = savedPokemons.map { pokemon -> Pokemon in
+            return Pokemon(url: pokemon.url, name: pokemon.name)
         }
-               
-        func saveSelectedItem(pokemon: MainScreenDataFlow.Pokemons.ViewModel.PokemonList) {
-            chosenPokemon = pokemons.first { $0.url == pokemon.url }
+        
+        if !pokemons.isEmpty {
+            let response = MainScreenDataFlow.Pokemons.Response(next: "", pokemons: pokemons)
+            presenter?.presentFetchedPokemons(response: response)
+        } else {
+            presenter?.presentAlert(with: "Pokemons Not Found",
+                                    and: "Please, pull to refresh data\nor check your internet connection")
         }
     }
+    
+    func saveSelectedItem(pokemon: MainScreenDataFlow.Pokemons.ViewModel.PokemonList) {
+        chosenPokemon = pokemons.first { $0.url == pokemon.url }
+    }
+}

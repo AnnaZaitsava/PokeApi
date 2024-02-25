@@ -30,11 +30,14 @@ final class RealmService {
                     try realm.write {
                         realm.add(newPokemon)
                     }
+                    print("Pokemon with name \(name) has been saved to the database.")
                     completion(true)
                 } else {
+                    print("Pokemon with name \(name) already exists in the database.")
                     completion(false)
             }
         } catch {
+            print("Error saving pokemon to Realm: \(error)")
             completion(false)
         }
     }
@@ -54,9 +57,12 @@ final class RealmService {
                         existingPokemon.sprites = imageData
                     }
                 }
+                print("Pokemon with name \(response.name) has been updated in the database.")
             } else {
+                print("Pokemon with name \(response.name) not found in the database.")
             }
         } catch {
+            print("Error updating pokemon in Realm: \(error)")
         }
     }
 
