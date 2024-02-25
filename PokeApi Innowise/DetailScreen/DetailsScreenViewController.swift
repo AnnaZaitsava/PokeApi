@@ -32,26 +32,20 @@ final class DetailsScreenViewController: UIViewController {
     private var typeLabel = UILabel(text: Strings.typeLabel.localizedString, textColor: .black)
     private var weightLabel = UILabel(text: Strings.weightLabel.localizedString, textColor: .black)
     private var heightLabel = UILabel(text: Strings.heightLabel.localizedString, textColor: .black)
-
-    
-//    private var nameLabel = UILabel(text: "Name", font: .bold32(), textColor: .black)
-//    private var typeLabel = UILabel(text: "Type", textColor: .black)
-//    private var weightLabel = UILabel(text: "Weight", textColor: .black)
-//    private var heightLabel = UILabel(text: "Height", textColor: .black)
     
     private var typeBg = UIView.makeBgView(bgColor: .white)
     private var weightBg = UIView.makeBgView(bgColor: .white)
     private var heightBg = UIView.makeBgView(bgColor: .white)
     
-    private var typeValue = UILabel(text: "Type",
-                                         font: .medium18(),
-                                         textColor: .black)
-    private var weightValue = UILabel(text: "Weight",
-                                           font: .medium18(),
-                                           textColor: .black)
-    private var heightValue = UILabel(text: "Height",
-                                           font: .medium18(),
-                                           textColor: .black)
+    private var typeValue = UILabel(text: "",
+                                    font: .medium18(),
+                                    textColor: .black)
+    private var weightValue = UILabel(text: "",
+                                      font: .medium18(),
+                                      textColor: .black)
+    private var heightValue = UILabel(text: "",
+                                      font: .medium18(),
+                                      textColor: .black)
     
     private let loaderView: LottieAnimationView = {
         let view = LottieAnimationView(name: "loading-circle-animation")
@@ -101,9 +95,9 @@ extension DetailsScreenViewController: DetailsDisplayLogic {
     
     func displayAlert(with title: String, and message: String) {
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        alert.addAction(UIAlertAction(title: Strings.okButton.localizedString, style: .default, handler: nil))
         present(alert, animated: true)
-        }
+    }
 }
 
 private extension DetailsScreenViewController {

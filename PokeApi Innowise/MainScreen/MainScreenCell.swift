@@ -42,7 +42,7 @@ class MainScreenCell: UITableViewCell {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-        
+    
     func configureCell(withName name: String) {
         nameLabel.text = name
     }
