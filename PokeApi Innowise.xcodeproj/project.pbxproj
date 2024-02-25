@@ -16,6 +16,8 @@
 		7964DC5E2B820487003EBA3D /* Poppins-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7964DC5D2B820487003EBA3D /* Poppins-Medium.ttf */; };
 		7964DC602B82048F003EBA3D /* Poppins-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7964DC5F2B82048F003EBA3D /* Poppins-ExtraBold.ttf */; };
 		7964DC632B8206A0003EBA3D /* UIFonts + Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7964DC622B8206A0003EBA3D /* UIFonts + Extensions.swift */; };
+		797DB5A02B8BD9C300315C29 /* MainInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 797DB59F2B8BD9C300315C29 /* MainInteractorTests.swift */; };
+		797DB5A22B8BE74200315C29 /* MainPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 797DB5A12B8BE74200315C29 /* MainPresenterTests.swift */; };
 		7986EF8D2B84E18700AE9797 /* NetworkPathMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7986EF8C2B84E18600AE9797 /* NetworkPathMonitor.swift */; };
 		79B977EA2B7FBBCD0033459F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79B977E92B7FBBCD0033459F /* AppDelegate.swift */; };
 		79B977EC2B7FBBCD0033459F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79B977EB2B7FBBCD0033459F /* SceneDelegate.swift */; };
@@ -61,6 +63,8 @@
 		7964DC5D2B820487003EBA3D /* Poppins-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Medium.ttf"; sourceTree = "<group>"; };
 		7964DC5F2B82048F003EBA3D /* Poppins-ExtraBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-ExtraBold.ttf"; sourceTree = "<group>"; };
 		7964DC622B8206A0003EBA3D /* UIFonts + Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFonts + Extensions.swift"; sourceTree = "<group>"; };
+		797DB59F2B8BD9C300315C29 /* MainInteractorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainInteractorTests.swift; sourceTree = "<group>"; };
+		797DB5A12B8BE74200315C29 /* MainPresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPresenterTests.swift; sourceTree = "<group>"; };
 		7986EF8C2B84E18600AE9797 /* NetworkPathMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkPathMonitor.swift; sourceTree = "<group>"; };
 		79B977E62B7FBBCD0033459F /* PokeApi Innowise.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "PokeApi Innowise.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		79B977E92B7FBBCD0033459F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -118,6 +122,8 @@
 			isa = PBXGroup;
 			children = (
 				791596842B859FCC00CAF819 /* PokeApi_InnowiseTests.swift */,
+				797DB59F2B8BD9C300315C29 /* MainInteractorTests.swift */,
+				797DB5A12B8BE74200315C29 /* MainPresenterTests.swift */,
 			);
 			path = "PokeApi InnowiseTests";
 			sourceTree = "<group>";
@@ -439,7 +445,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				797DB5A22B8BE74200315C29 /* MainPresenterTests.swift in Sources */,
 				791596852B859FCC00CAF819 /* PokeApi_InnowiseTests.swift in Sources */,
+				797DB5A02B8BD9C300315C29 /* MainInteractorTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -15,12 +15,12 @@ final class PokeApi_InnowiseTests: XCTestCase {
         try super.setUpWithError()
         sut = Network()
     }
-
+    
     override func tearDownWithError() throws {
         sut = nil
         try super.tearDownWithError()
     }
-
+    
     func testExample() throws {
         let url = "https://pokeapi.co/api/v2/pokemon/1"
         let expectation = expectation(description: "Fetch pokemon details")
