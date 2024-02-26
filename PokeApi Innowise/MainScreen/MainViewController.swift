@@ -77,7 +77,7 @@ extension MainViewController: MainDisplayLogic {
     
     func displayAlert(with title: String, and message: String) {
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        alert.addAction(UIAlertAction(title: Strings.okButton.localizedString, style: .default, handler: nil))
         present(alert, animated: true) { [weak self] in
             self?.mainTableView.refreshControl?.endRefreshing()
         }
@@ -140,7 +140,7 @@ private extension MainViewController {
     }
     
     func setupNavBar() {
-        self.navigationItem.title = "Pokemons"
+        self.navigationItem.title = Strings.navBarTitle.localizedString
         if let navigationBar = navigationController?.navigationBar {
             navigationBar.titleTextAttributes = [
                 NSAttributedString.Key.foregroundColor: UIColor.black,

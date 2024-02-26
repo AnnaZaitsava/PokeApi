@@ -13,6 +13,7 @@ enum Strings: String {
     case weightLabel = "Weight"
     case heightLabel = "Height"
     case okButton = "OKButton"
+    case navBarTitle = "NavBarTitle"
     
     public var localizedString: String {
         return NSLocalizedString(self.rawValue, comment: "")
