@@ -15,7 +15,7 @@ protocol MainDataPassing {
     var dataStore: MainDataStore? { get }
 }
 
-class MainRouter: NSObject, MainRoutingLogic, MainDataPassing {
+final class MainRouter: NSObject, MainRoutingLogic, MainDataPassing {
     
     weak var viewController: MainViewController?
     var dataStore: MainDataStore?
@@ -27,9 +27,7 @@ class MainRouter: NSObject, MainRoutingLogic, MainDataPassing {
         
         var destinationDataSource = destinationViewController.router!.dataStore!
         passDataToSomewhere(source: dataStore!, destination: &destinationDataSource)
-        
-        navigateToDetails(source: viewController!, destination: destinationViewController)
-        
+        navigateToDetails(source: viewController!, destination: destinationViewController)        
     }
     
     // MARK: Navigation
@@ -38,13 +36,12 @@ class MainRouter: NSObject, MainRoutingLogic, MainDataPassing {
         source: MainViewController,
         destination: DetailsScreenViewController) {
             source.navigationController?.pushViewController(destination, animated: true)
-    }
+        }
     
     func passDataToSomewhere(
         source: MainDataStore,
         destination: inout DetailedDataStore) {
             destination.chosenPokemon = source.chosenPokemon
-            print("\(String(describing: source.chosenPokemon?.url))")
-    }
-
+        }
+    
 }

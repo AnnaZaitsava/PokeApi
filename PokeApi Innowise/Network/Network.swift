@@ -7,72 +7,74 @@
 
 import UIKit
 
-typealias Completion = ((Result<PokemonListResponse, Error>) -> Void)
+enum NetworkError: Error {
+    case invalidURL
+    case serverError
+    case decodingError
+    case noData
+    case imageLoadingError
+}
 
 struct Network {
-    private let url = URL(string: "https://pokeapi.co/api/v2/pokemon")
     
-    func fetchPokemonList(url: String, completion: @escaping Completion) {
-        guard let url = URL(string: url) else {
-            completion(.failure(URLError(.badURL)))
+    func fetchPokemonList(url: String, completion: @escaping (Result<PokemonListResponse, NetworkError>) -> Void) {
+        
+        var urlComponents = URLComponents()
+        urlComponents.scheme = "https"
+        urlComponents.host = "pokeapi.co"
+        urlComponents.path = "/api/v2/pokemon"
+        
+        guard let url = urlComponents.url else {
+            completion(.failure(.invalidURL))
             return
         }
         
-        let urlRequest = URLRequest(url: url)
-        let task = URLSession.shared.dataTask(
-            with: urlRequest,
-            completionHandler: { (data, response, error) in
-                if let error = error {
-                    completion(.failure(error))
-                    return
-                }
-                
-                guard let response = response as? HTTPURLResponse else {
-                    completion(.failure(URLError(.badServerResponse)))
-                    return
-                }
-                
-                guard response.statusCode == 200 else {
-                    completion(.failure(URLError(.badServerResponse)))
-                    return
-                }
-                
-                guard let data = data else {
-                    completion(.failure(URLError(.cannotDecodeContentData)))
-                    return
-                }
-                
-                do {
-                    let pokemons = try? JSONDecoder().decode(PokemonListResponse.self, from: data)
-                    guard let result = pokemons else {
-                        return
-                    }
-                    completion(.success(result))
-                }
-            }
-        )
-        task.resume()
-    }
-    
-    func fetchPokemonDetails(from url: String, completion: @escaping (Result<PokemonDetailed, Error>) -> Void) {
-        guard let url = URL(string: url) else {
-            completion(.failure(URLError(.badURL)))
-            return
-        }
-        
-        let task = URLSession.shared.dataTask(with: url) { data, response, error in
-            if let error = error {
-                completion(.failure(error))
+        let task = URLSession.shared.dataTask(with: url) { (data, response, error) in
+            if error != nil {
+                completion(.failure(.serverError))
                 return
             }
             
-            guard let response = response as? HTTPURLResponse, response.statusCode == 200 else {
-                completion(.failure(URLError(.badServerResponse)))
+            guard let httpResponse = response as? HTTPURLResponse, httpResponse.statusCode == 200 else {
+                completion(.failure(.serverError))
                 return
             }
             
             guard let data = data else {
-                completion(.failure(URLError(.cannotDecodeContentData)))
+                completion(.failure(.noData))
+                return
+            }
+            
+            do {
+                let pokemons = try JSONDecoder().decode(PokemonListResponse.self, from: data)
+                completion(.success(pokemons))
+            } catch {
+                completion(.failure(.decodingError))
+            }
+        }
+        
+        task.resume()
+    }
+    
+    func fetchPokemonDetails(from url: String, completion: @escaping (Result<PokemonDetailed, NetworkError>) -> Void) {
+        guard let url = URL(string: url) else {
+            completion(.failure(.invalidURL))
+            return
+        }
+        
+        let task = URLSession.shared.dataTask(with: url) { data, response, error in
+            if error != nil {
+                completion(.failure(.serverError))
+                return
+            }
+            
+            guard let httpResponse = response as? HTTPURLResponse, httpResponse.statusCode == 200 else {
+                completion(.failure(.serverError))
+                return
+            }
+            
+            guard let data = data else {
+                completion(.failure(.noData))
                 return
             }
             
@@ -80,29 +82,31 @@ struct Network {
                 let pokemonDetailed = try JSONDecoder().decode(PokemonDetailed.self, from: data)
                 completion(.success(pokemonDetailed))
             } catch {
-                completion(.failure(error))
+                completion(.failure(.decodingError))
             }
         }
         
         task.resume()
     }
-
     
-    func loadImage(from url: URL, completion: @escaping (UIImage?) -> Void) {
-           URLSession.shared.dataTask(with: url) { data, response, error in
-               if let error = error {
-                   print("Error loading image: \(error)")
-                   completion(nil)
-                   return
-               }
-
-               if let data = data, let image = UIImage(data: data) {
-                   completion(image)
-               } else {
-                   print("Error creating image from data")
-                   completion(nil)
-               }
-           }.resume()
-       }
-
+    func loadImage(from url: URL, completion: @escaping (Result<UIImage?, NetworkError>) -> Void) {
+        URLSession.shared.dataTask(with: url) { data, response, error in
+            if error != nil {
+                completion(.failure(.imageLoadingError))
+                return
+            }
+            
+            guard let data = data else {
+                completion(.failure(.noData))
+                return
+            }
+            
+            if let image = UIImage(data: data) {
+                completion(.success(image))
+            } else {
+                completion(.failure(.imageLoadingError))
+            }
+        }.resume()
+    }
 }
+

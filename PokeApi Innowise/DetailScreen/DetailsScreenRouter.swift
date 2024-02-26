@@ -12,7 +12,7 @@ protocol DetailedDataPassing {
     var dataStore: DetailedDataStore? { get }
 }
 
-class DetailsScreenRouter: NSObject, DetailedRoutingLogic, DetailedDataPassing {
+final class DetailsScreenRouter: NSObject, DetailedRoutingLogic, DetailedDataPassing {
     weak var viewController: DetailsScreenViewController?
     var dataStore: DetailedDataStore?
 }

@@ -13,7 +13,7 @@ class MainScreenCell: UITableViewCell {
     
     // MARK: View setup
     
-    private lazy var nameLabel: UILabel = {
+    private var nameLabel: UILabel = {
         let label = UILabel()
         label.text = "Pokemon"
         label.textColor = .black
@@ -21,7 +21,7 @@ class MainScreenCell: UITableViewCell {
         return label
     }()
     
-    private lazy var bgView: UIView = {
+    private var bgView: UIView = {
         let view =  UIView()
         view.backgroundColor = .white
         view.layer.borderWidth = 1
@@ -42,7 +42,7 @@ class MainScreenCell: UITableViewCell {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-        
+    
     func configureCell(withName name: String) {
         nameLabel.text = name
     }

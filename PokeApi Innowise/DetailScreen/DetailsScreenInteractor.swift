@@ -14,11 +14,10 @@ protocol DetailedDataStore {
     var chosenPokemon: Pokemon? { get set }
 }
 
-class DetailsScreenInteractor: DetailedBusinessLogic, DetailedDataStore {
+final class DetailsScreenInteractor: DetailedBusinessLogic, DetailedDataStore {
     var chosenPokemon: Pokemon?
     let network = Network()
     var presenter: DetailedPresentationLogic?
-    var worker: DetailsScreenWorker?
     var realm = RealmService()
     
     func fetchDetailedInformation() {
@@ -28,7 +27,7 @@ class DetailsScreenInteractor: DetailedBusinessLogic, DetailedDataStore {
             fetchPokemonDetailsFromDatabase()
         }
     }
-        
+    
     private func fetchPokemonDetailsFromNetwork() {
         guard let pokemonURL = chosenPokemon?.url else {
             presenter?.presentAlert(with: "Error", and: "Failed to fetch Pokemon details. Please check your internet connection and try again later.")
@@ -41,35 +40,39 @@ class DetailsScreenInteractor: DetailedBusinessLogic, DetailedDataStore {
                 case .success(let pokemonDetailed):
                     if let officialArtwork = pokemonDetailed.sprites.other.officialArtwork?.frontDefault,
                        let imageURL = URL(string: officialArtwork) {
-                        self?.network.loadImage(from: imageURL) { loadedImage in
+                        self?.network.loadImage(from: imageURL) { loadedImageResult in
                             DispatchQueue.main.async {
-                                if let image = loadedImage {
-                                    let response = DetailsScreenDataFlow.Info.Response(
-                                        id: pokemonDetailed.id,
-                                        name: pokemonDetailed.name,
-                                        height: pokemonDetailed.height,
-                                        weight: pokemonDetailed.weight,
-                                        types: pokemonDetailed.types,
-                                        sprites: image
-                                    )
-                                    self?.realm.updatePokemonInRealmIfNeeded(response: response)
-                                    self?.presenter?.presentDetailedInformation(response: response)
-                                } else {
-                                    self?.presenter?.presentAlert(with: "Image Not Found", and: "Failed to load image data")
+                                switch loadedImageResult {
+                                case .success(let loadedImage):
+                                    if let image = loadedImage {
+                                        let response = DetailsScreenDataFlow.Info.Response(
+                                            id: pokemonDetailed.id,
+                                            name: pokemonDetailed.name,
+                                            height: pokemonDetailed.height,
+                                            weight: pokemonDetailed.weight,
+                                            types: pokemonDetailed.types,
+                                            sprites: image
+                                        )
+                                        self?.realm.updatePokemonInRealmIfNeeded(response: response)
+                                        self?.presenter?.presentDetailedInformation(response: response)
+                                    } else {
+                                        self?.presenter?.presentAlert(with: "Image Not Found", and: "Failed to load image data")
+                                    }
+                                case .failure:
+                                    self?.presenter?.presentAlert(with: "Error", and: "Failed to load image data")
                                 }
                             }
                         }
                     } else {
                         self?.presenter?.presentAlert(with: "Error", and: "Image Not Found")
                     }
-                    
-                case .failure(let error):
-                    print("Error: \(error)")
+                case .failure:
                     self?.fetchPokemonDetailsFromDatabase()
                 }
             }
         }
     }
+    
     
     private func fetchPokemonDetailsFromDatabase() {
         let pokemonsFromDatabase = realm.getPokemonsFromRealm()
@@ -91,6 +94,4 @@ class DetailsScreenInteractor: DetailedBusinessLogic, DetailedDataStore {
             self.presenter?.presentAlert(with: "Pokemons Not Found", and: "Please connect to the network")
         }
     }
-
 }
-
