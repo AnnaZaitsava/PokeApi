@@ -11,7 +11,7 @@ protocol MainDisplayLogic: AnyObject {
     func displayAlert(with title: String, and message: String)
 }
 
-final class MainViewController: UIViewController {
+class MainViewController: UIViewController {
     
     // MARK: Variables
     
@@ -38,7 +38,7 @@ final class MainViewController: UIViewController {
         return tableView
     }()
     
-    private var pokemons: [MainScreenDataFlow.Pokemons.ViewModel.PokemonList] = []
+    var pokemons: [MainScreenDataFlow.Pokemons.ViewModel.PokemonList] = []
     
     // MARK: Init
     
