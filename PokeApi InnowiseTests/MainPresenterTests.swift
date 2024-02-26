@@ -33,7 +33,8 @@ final class MainPresenterTests: XCTestCase {
         let response = MainScreenDataFlow.Pokemons.Response(next: "", pokemons: pokemons)
         sut.presentFetchedPokemons(response: response)
         
-        XCTAssertTrue(spyViewController.displayPokemonListCalled, "presentFetchedPokemons should display Pokemons in the viewController")
+        XCTAssertTrue(spyViewController.displayPokemonListCalled,
+                      "presentFetchedPokemons should display Pokemons in the viewController")
         XCTAssertEqual(spyViewController.displayPokemonListViewModel?.pokemonListViewModel.count, 2)
         XCTAssertEqual(spyViewController.displayPokemonListViewModel?.pokemonListViewModel[0].name,
                        "Name1", "presentFetchedPokemons should change name to correct format")
